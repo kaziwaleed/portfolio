@@ -53,7 +53,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing
 .lede strong{color:var(--ink)}
 .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .portrait{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:4/5;background:var(--bg-2)}
-.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 0}
 @media (max-width:760px){.intro{grid-template-columns:1fr}.portrait{max-width:260px;aspect-ratio:1/1;order:-1}}
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
@@ -151,13 +151,13 @@ dialog.lb .bar .mono{color:#B8AEA6}
     <div>
       <span class="mono">Regional Creative Lead · Dubai</span>
       <h1>I write it.<br>I direct it.<br>I <em class="s key">make</em> it.</h1>
-      <p class="lede">I'm <strong>Kazi Waleed Ahmed</strong>, a creative director who also writes, produces and directs. For 8+ years I've built integrated campaigns for <strong>P&amp;G, PepsiCo, Unilever and PMI</strong> across the GCC and MENAP, and steered brands through repositioning, peak inflation and political disruption.</p>
+      <p class="lede">I'm <strong>Kazi Waleed Ahmed</strong>, a creative director who also writes, produces and directs. For 8+ years I've built integrated campaigns for <strong>P&amp;G, PepsiCo, Unilever and PMI</strong> across the GCC and MENAP, and repositioned some of the region's best-known brands along the way.</p>
       <div class="cta">
         <button class="btn dark" data-play="v42" data-title="DVC Showreel"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg>Play the reel</button>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
-    <figure class="portrait"><img src="./image1.jpg" alt="Portrait of Kazi Waleed Ahmed"></figure>
+    <figure class="portrait"><img src="./portrait.jpg" alt="Portrait of Kazi Waleed Ahmed"></figure>
   </section>
 
   <div class="stats">
@@ -183,15 +183,6 @@ dialog.lb .bar .mono{color:#B8AEA6}
     <div class="strip" id="strip"></div>
   </section>
 
-  <section class="sec">
-    <div class="how">
-      <p class="big">A creative who can write the script, run the pitch, sit in the edit and <span class="key">still care about the brief</span>.</p>
-      <div><span class="n">01</span><b>Start from a truth</b><span>Every campaign begins with a consumer insight, tested hard before it's made.</span></div>
-      <div><span class="n">02</span><b>Plan where it counts</b><span>Integrated brand plans that decide where the investment goes, not just what it looks like.</span></div>
-      <div><span class="n">03</span><b>Make it, fast</b><span>Production roots, AI workflows and a think-tank team that pitches 2–3 big ideas a month.</span></div>
-    </div>
-  </section>
-
   <section class="sec two" id="career">
     <div>
       <div class="head"><h2>Career</h2></div>
@@ -202,18 +193,26 @@ dialog.lb .bar .mono{color:#B8AEA6}
       <div class="rows" id="awards"></div>
     </div>
   </section>
+
+  <section class="sec">
+    <div class="how">
+      <p class="big">A creative who can write the script, run the pitch, sit in the edit and <span class="key">still care about the brief</span>.</p>
+      <div><span class="n">01</span><b>Start from a truth</b><span>Every campaign begins with a consumer insight, tested hard before it's made.</span></div>
+      <div><span class="n">02</span><b>Plan where it counts</b><span>Integrated brand plans that decide where the investment goes, not just what it looks like.</span></div>
+      <div><span class="n">03</span><b>Make it, fast</b><span>Production roots, AI workflows and a think-tank team that pitches 2–3 big ideas a month.</span></div>
+    </div>
+  </section>
 </main>
 
 <section class="contact" id="contact">
   <div class="wrap">
     <span class="mono">Contact</span>
-    <h2>Let's make something <em class="s key">good</em>.</h2>
+    <h2>Bring the brief.<br>I'll bring the <em class="s key">snacks</em>.</h2>
     <div class="acts">
       <a class="btn hot" href="mailto:kaziwaleed@hotmail.com">kaziwaleed@hotmail.com</a>
       <a class="btn" href="https://wa.me/971562000695" target="_blank" rel="noopener">+971 56 200 0695 ↗</a>
       <a class="btn" href="https://linkedin.com/in/kaziwaleed" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a class="btn" href="./Kazi-Waleed-Ahmed-Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
-      <a class="btn" href="./Kazi-Waleed-Ahmed-Resume-FMCG.pdf" target="_blank" rel="noopener">FMCG resume ↗</a>
     </div>
     <div class="foot"><span class="mono">© 2026 Kazi Waleed Ahmed</span><a class="mono" href="index.html" style="text-decoration:none">Full portfolio ↗</a></div>
   </div>
@@ -236,10 +235,10 @@ const WORK=[
  ["v1",I(21),"P&G · Safeguard","Hifazat Ka All-Rounder","The brand's <b>first repositioning in 20 years</b>, with an <b>18% affinity lift</b>.",""],
  ["v20",I(52),"Dalda Foods","Jahan Maamta Wahan Dalda","A thematic reboot with Fawad Khan that drove an <b>11% sales increase</b>.","Effie Gold"],
  ["",I(43),"Barbican · AFC Champions League","Raise The Game","A winning strategy and a <b>$700K+ campaign</b> across <b>4 GCC markets</b>.",""],
- ["v28",P("v28"),"Unilever · Close Up","White Now in full 3D","A <b>26-asset CGI suite</b>, optimised live, with a <b>+32% retention lift</b>.",""],
  ["v4",I(24),"P&G · Ariel","A value tier in peak inflation","Launched Ariel's value tier and <b>protected 78% of baseline volume</b>.","Dragons of Asia"],
  ["v41",I(71),"KIA Motors","Stonic · It's Got It All","Took on the <b>two best-selling sedans</b> with a multi-part DVC series.","iF Design"],
- ["v36",I(67),"EFU Life · WIN app","WIN at life, together","Built the <b>brand identity, strategy and 360° launch</b> for a wellness app.","Insurance Asia"]
+ ["v36",I(67),"EFU Life · WIN app","WIN at life, together","Built the <b>brand identity, strategy and 360° launch</b> for a wellness app.","Insurance Asia"],
+ ["v28",P("v28"),"Unilever · Close Up","White Now in full 3D","A <b>26-asset CGI suite</b>, optimised live, with a <b>+32% retention lift</b>.",""]
 ];
 const EXP=[
  [I(105),"PepsiCo · Sting","Sting × MDLBEAST Riyadh","A 10×10 m night-mode build: <b>14K+ samplings</b>, <b>240K+ organic impressions</b>.",""],
