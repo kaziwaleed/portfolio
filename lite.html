@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kazi Waleed Ahmed · One page</title>
+<meta name="description" content="Kazi Waleed Ahmed, Regional Creative Lead in Dubai. Campaigns, film and brand experiences for P&G, PepsiCo, Unilever and PMI across the GCC and MENAP.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#FBF9F5;--bg-2:#F2EEE7;--ink:#141110;--ink-2:#3A3431;--mute:#7A716A;--line:rgba(20,17,16,.12);
+  --coral:#F2683C;--flame:#F0843F;--amber:#C9741E;--accent:#C4532A;
+  --key:linear-gradient(100deg,#F2683C 0%,#F0843F 45%,#F2A445 100%);
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-serif:"Instrument Serif",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --g:clamp(16px,4vw,48px);--max:1180px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-display);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}img,video{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--g)}
+.mono{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.key{background:var(--key);-webkit-background-clip:text;background-clip:text;color:transparent}
+em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:0}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:600;text-decoration:none;transition:border-color .2s,background .2s}
+.btn:hover{border-color:rgba(20,17,16,.4)}
+.btn.dark{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.dark:hover{background:#2a2422}
+.btn svg{width:12px;height:12px}
+
+/* top */
+.top{position:sticky;top:0;z-index:20;background:rgba(251,249,245,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:-.01em;font-size:15px}
+.mark b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--key);color:var(--ink);font-size:12px}
+.top nav{display:flex;align-items:center;gap:22px}
+.top nav a{font-size:14px;text-decoration:none;color:var(--mute)}
+.top nav a:hover{color:var(--ink)}
+@media (max-width:640px){.top nav a.hide{display:none}}
+
+/* intro */
+.intro{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(24px,4vw,56px);align-items:end;padding-block:clamp(36px,6vw,72px) 32px}
+.intro h1{margin:12px 0 18px;font-size:clamp(44px,6.4vw,88px);line-height:.92;letter-spacing:.002em;word-spacing:.06em;font-weight:800;font-variation-settings:"wdth" 86,"opsz" 96}
+.intro h1 em.s{font-size:1.06em}
+.lede{margin:0;max-width:56ch;font-size:clamp(17px,1.5vw,19px);color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.portrait{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:4/5;background:var(--bg-2)}
+.portrait img{width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){.intro{grid-template-columns:1fr}.portrait{max-width:260px;aspect-ratio:1/1;order:-1}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
+.stat{padding:18px 18px 18px 0}
+.stat+.stat{padding-left:18px;border-left:1px solid var(--line)}
+.stat b{display:block;font-size:clamp(28px,3vw,40px);line-height:1;font-weight:800;letter-spacing:-.02em;font-variation-settings:"wdth" 84}
+.stat span{display:block;margin-top:6px;font-size:13px;color:var(--mute);line-height:1.35}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){padding-left:0;border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+.brands{margin:16px 0 0;font-size:14px;color:var(--mute);line-height:1.7}
+.brands b{color:var(--ink);font-weight:600}
+
+/* sections */
+.sec{padding-top:clamp(48px,7vw,88px)}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.head h2{margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1;letter-spacing:-.02em;font-weight:800;font-variation-settings:"wdth" 86}
+.head a{font-size:14px;color:var(--mute);text-decoration:none}
+.head a:hover{color:var(--ink)}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 20px}
+@media (max-width:900px){.work{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.work{grid-template-columns:1fr}}
+.w{text-align:left;display:block;width:100%;text-decoration:none}
+.w .th{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--bg-2)}
+.w .th img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.w:hover .th img{transform:scale(1.03)}
+.w .pl{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(251,249,245,.94);color:var(--ink)}
+.w .pl svg{width:11px;height:11px;margin-left:2px}
+.w .aw{position:absolute;left:10px;top:10px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,249,245,.94);color:var(--accent);padding:5px 8px;border-radius:999px}
+.w .m{margin-top:12px;display:flex;justify-content:space-between;gap:10px}
+.w h3{margin:4px 0 4px;font-size:19px;line-height:1.15;letter-spacing:-.01em;font-weight:700}
+.w p{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.45}
+.w p b{color:var(--ink)}
+
+/* reel strip */
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
+@media (max-width:760px){.strip{margin-inline:calc(var(--g)*-1);padding-inline:var(--g)}}
+.strip button{flex:0 0 clamp(200px,24vw,260px);scroll-snap-align:start;text-align:left}
+.strip .th{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--bg-2)}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.strip button:hover img{transform:scale(1.04)}
+.strip .t{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:13.5px;font-weight:600;line-height:1.25}
+.strip .t em{font-style:normal;font-family:var(--f-mono);font-size:10.5px;font-weight:400;color:var(--mute);white-space:nowrap;padding-top:2px}
+.strip .r{display:block;font-size:12.5px;color:var(--mute);font-weight:400;margin-top:2px}
+
+/* how */
+.how{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:clamp(20px,3vw,40px);padding:clamp(28px,4vw,44px) 0;border-block:1px solid var(--line)}
+.how p.big{margin:0;font-size:clamp(20px,2vw,26px);line-height:1.25;letter-spacing:-.005em;font-weight:600}
+.how b{display:block;font-size:16px;margin-bottom:6px}
+.how div span{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.how div .n{display:block;font-family:var(--f-mono);font-size:11px;color:var(--accent);margin-bottom:10px}
+@media (max-width:900px){.how{grid-template-columns:1fr 1fr}.how p.big{grid-column:1/-1}}
+@media (max-width:560px){.how{grid-template-columns:1fr}}
+.exp{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:760px){.exp{grid-template-columns:1fr}}
+/* two-col */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.row .y{font-family:var(--f-mono);font-size:11.5px;color:var(--mute);padding-top:3px}
+.row b{display:block;font-size:16px;line-height:1.25}
+.row span{display:block;font-size:14px;color:var(--ink-2);line-height:1.45}
+.row span.at{color:var(--accent);font-size:13.5px;margin-top:1px}
+
+/* contact */
+.contact{margin-top:clamp(52px,7vw,88px);background:var(--ink);color:var(--bg);padding-block:clamp(40px,6vw,64px) 28px}
+.contact h2{margin:10px 0 24px;font-size:clamp(40px,6vw,80px);line-height:.92;letter-spacing:.002em;word-spacing:.06em;font-weight:800;font-variation-settings:"wdth" 86,"opsz" 96}
+.contact .mono{color:#9A9089}
+.contact .btn{color:var(--bg);border-color:rgba(251,249,245,.22)}
+.contact .btn:hover{border-color:rgba(251,249,245,.6)}
+.contact .btn.hot{background:var(--key);color:#1a0f08;border-color:transparent}
+.acts{display:flex;flex-wrap:wrap;gap:10px}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:18px;border-top:1px solid rgba(251,249,245,.14)}
+
+/* lightbox */
+dialog.lb{width:min(1100px,94vw);max-width:94vw;padding:0;border:0;background:#000;border-radius:12px;overflow:hidden}
+dialog.lb::backdrop{background:rgba(20,17,16,.86)}
+dialog.lb video{width:100%;max-height:80vh;background:#000}
+dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;background:#1E1A18;color:var(--bg)}
+dialog.lb .bar .mono{color:#B8AEA6}
+.x{border:1px solid rgba(251,249,245,.25);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--bg)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#" aria-label="Kazi Waleed Ahmed"><b>KW</b><span>Kazi Waleed Ahmed</span></a>
+    <nav><a class="hide" href="#work">Work</a><a class="hide" href="#film">Film</a><a class="hide" href="#career">Career</a><a class="btn" href="index.html">Full portfolio ↗</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div>
+      <span class="mono">Regional Creative Lead · Dubai</span>
+      <h1>I write it.<br>I direct it.<br>I <em class="s key">make</em> it.</h1>
+      <p class="lede">I'm <strong>Kazi Waleed Ahmed</strong>, a creative director who also writes, produces and directs. For 8+ years I've built integrated campaigns for <strong>P&amp;G, PepsiCo, Unilever and PMI</strong> across the GCC and MENAP, and steered brands through repositioning, peak inflation and political disruption.</p>
+      <div class="cta">
+        <button class="btn dark" data-play="v42" data-title="DVC Showreel"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg>Play the reel</button>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <figure class="portrait"><img src="./image1.jpg" alt="Portrait of Kazi Waleed Ahmed"></figure>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><b class="key">8+</b><span>years across network agencies and production studios</span></div>
+    <div class="stat"><b>+20%</b><span>category share for ZYN against the legacy player</span></div>
+    <div class="stat"><b>60%</b><span>live pitch win rate against Omnicom and Publicis</span></div>
+    <div class="stat"><b>9</b><span>awards, including Effie Gold, Dragons of Asia and iF Design</span></div>
+  </div>
+  <p class="brands"><b>Brands</b> · P&amp;G · PepsiCo · Unilever · Philip Morris · Always · Ariel · Safeguard · ZYN · Barbican · DZRT · Close Up · Lay's · Sting · Dalda · KIA · Knorr · Dubai Holding</p>
+
+  <section class="sec" id="work">
+    <div class="head"><h2>Selected <em class="s">work</em></h2><a href="index.html#work">All case studies ↗</a></div>
+    <div class="work" id="work-grid"></div>
+  </section>
+
+  <section class="sec" id="experiences">
+    <div class="head"><h2>Brand <em class="s">experiences</em></h2><span class="mono">KSA · 2025</span></div>
+    <div class="exp" id="exp-grid"></div>
+  </section>
+
+  <section class="sec" id="film">
+    <div class="head"><h2>Film &amp; <em class="s">reel</em></h2><span class="mono">Scroll →</span></div>
+    <div class="strip" id="strip"></div>
+  </section>
+
+  <section class="sec">
+    <div class="how">
+      <p class="big">A creative who can write the script, run the pitch, sit in the edit and <span class="key">still care about the brief</span>.</p>
+      <div><span class="n">01</span><b>Start from a truth</b><span>Every campaign begins with a consumer insight, tested hard before it's made.</span></div>
+      <div><span class="n">02</span><b>Plan where it counts</b><span>Integrated brand plans that decide where the investment goes, not just what it looks like.</span></div>
+      <div><span class="n">03</span><b>Make it, fast</b><span>Production roots, AI workflows and a think-tank team that pitches 2–3 big ideas a month.</span></div>
+    </div>
+  </section>
+
+  <section class="sec two" id="career">
+    <div>
+      <div class="head"><h2>Career</h2></div>
+      <div class="rows" id="jobs"></div>
+    </div>
+    <div>
+      <div class="head"><h2>Recognition</h2></div>
+      <div class="rows" id="awards"></div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="mono">Contact</span>
+    <h2>Let's make something <em class="s key">good</em>.</h2>
+    <div class="acts">
+      <a class="btn hot" href="mailto:kaziwaleed@hotmail.com">kaziwaleed@hotmail.com</a>
+      <a class="btn" href="https://wa.me/971562000695" target="_blank" rel="noopener">+971 56 200 0695 ↗</a>
+      <a class="btn" href="https://linkedin.com/in/kaziwaleed" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="./Kazi-Waleed-Ahmed-Resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+      <a class="btn" href="./Kazi-Waleed-Ahmed-Resume-FMCG.pdf" target="_blank" rel="noopener">FMCG resume ↗</a>
+    </div>
+    <div class="foot"><span class="mono">© 2026 Kazi Waleed Ahmed</span><a class="mono" href="index.html" style="text-decoration:none">Full portfolio ↗</a></div>
+  </div>
+</section>
+
+<dialog class="lb" id="lb" aria-label="Video player">
+  <video id="lbVid" controls playsinline></video>
+  <div class="bar"><span class="mono" id="lbTitle"></span><button class="x" id="lbClose">Close</button></div>
+</dialog>
+
+<script>
+const RT={v4:30,v36:46,v1:20,v2:30,v12:26,v20:60,v28:22,v41:56,v42:62,v43:26,v44:118,v45:196,v46:67,v47:60,v49:21,v53:56,v55:13,v57:45,v51:26,v52:15};
+const I=n=>`./image${n}.jpg`, P=v=>`./p-${v}.jpg`;
+const mmss=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+const play='<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg>';
+
+const WORK=[
+ ["v2",I(26),"P&G · Always","Shhh Nahi Shhhare","Reversed <b>two years of 20% share decline</b> by ending the silence around period discomfort.","Dragons of Asia"],
+ ["v12",P("v12"),"PMI · ZYN","ZYN 2.0 launch slate","Wrote a <b>15-DVC slate</b> and CGI launches behind <b>20% category share growth</b>.",""],
+ ["v1",I(21),"P&G · Safeguard","Hifazat Ka All-Rounder","The brand's <b>first repositioning in 20 years</b>, with an <b>18% affinity lift</b>.",""],
+ ["v20",I(52),"Dalda Foods","Jahan Maamta Wahan Dalda","A thematic reboot with Fawad Khan that drove an <b>11% sales increase</b>.","Effie Gold"],
+ ["",I(43),"Barbican · AFC Champions League","Raise The Game","A winning strategy and a <b>$700K+ campaign</b> across <b>4 GCC markets</b>.",""],
+ ["v28",P("v28"),"Unilever · Close Up","White Now in full 3D","A <b>26-asset CGI suite</b>, optimised live, with a <b>+32% retention lift</b>.",""],
+ ["v4",I(24),"P&G · Ariel","A value tier in peak inflation","Launched Ariel's value tier and <b>protected 78% of baseline volume</b>.","Dragons of Asia"],
+ ["v41",I(71),"KIA Motors","Stonic · It's Got It All","Took on the <b>two best-selling sedans</b> with a multi-part DVC series.","iF Design"],
+ ["v36",I(67),"EFU Life · WIN app","WIN at life, together","Built the <b>brand identity, strategy and 360° launch</b> for a wellness app.","Insurance Asia"]
+];
+const EXP=[
+ [I(105),"PepsiCo · Sting","Sting × MDLBEAST Riyadh","A 10×10 m night-mode build: <b>14K+ samplings</b>, <b>240K+ organic impressions</b>.",""],
+ [I(118),"PepsiCo · Flamin' Hot","Culinary tour, 3 cities","A spicy menu across Jeddah, Riyadh and Dammam, with a Kleenex twist.","Saudi Event Awards"],
+ [I(110),"PepsiCo · Lay's","Original Chili is Back","A mall tasting challenge with a <b>Nielsen survey</b> built in.",""]
+];
+const STRIP=[
+ ["v45","Teri Meri Kahaniyaan","Feature film · marketing"],["v46","Rawalpindi Express","Feature film · producer"],
+ ["v47","Digestive Showtime","15M+ views in month one"],["v43","National Ketchup Factory","Web series · Effie Bronze"],
+ ["v20","Dalda · Maamta","Writer · associate director"],
+ ["v53","KIA Stonic · Beach","Associate director"],["v55","Always · Shhh","Associate director"],
+ ["v57","Ensure · Abbott TVC","Director"],["v44","Healthy Saudi Smile","Haleon KSA · producer"]
+];
+const JOBS=[
+ ["2025 – now","Regional Creative Lead","Helium Marketing · UAE","$16M PepsiCo, Unilever and Barbican portfolio across 6 GCC markets. Won Dubai Holding in our first pitch."],
+ ["2024 – 25","Creative Director","Adcom Leo Burnett · PK","P&G (MENAP) and Philip Morris at Effie's 2025 Network Agency of the Year."],
+ ["2021 – 24","Associate Creative Director","MullenLowe · PK","Team of 12 across 11 brands. Won 2 new brands, won back 2, retainer base up 20%."],
+ ["2018 – 21","Creative Producer","SEEME · Tall Man · Digital Invasion","16+ TVCs, 2 theatrical features and an Effie-winning web series."]
+];
+const AW=[
+ ["2025","Saudi Event Awards · Nominee","Flamin' Hot culinary activation"],
+ ["2025","Dragons of Asia · Social Good","Always · Changing the Narrative"],
+ ["2024","Dragons of Asia · Sustainability","Ariel · Sustainability at Home"],
+ ["2023","Effie Gold","Dalda · Jahan Maamta Wahan Dalda"],
+ ["2023","Effie Bronze","Tullo · Restaging the Kids"],
+ ["2023","iF Design Award","KIA Stonic · #PlayItYoung"],
+ ["2020","Effie Bronze","National Ketchup Factory web series"]
+];
+const $=s=>document.querySelector(s);
+$("#work-grid").innerHTML=WORK.map(([v,img,c,t,l,a])=>{
+  const tag=v?`button data-play="${v}" data-title="${c} · ${t}"`:`a href="index.html#work"`;
+  return `<${tag} class="w"><div class="th"><img src="${img}" alt="" loading="lazy">${a?`<span class="aw">${a}</span>`:""}${v?`<span class="pl">${play}</span>`:""}</div>
+  <div class="m"><span class="mono">${c}</span>${v?`<span class="mono">${mmss(RT[v])}</span>`:""}</div><h3>${t}</h3><p>${l}</p></${v?"button":"a"}>`}).join("");
+$("#exp-grid").innerHTML=EXP.map(([img,c,t,l,a])=>`<a class="w" href="index.html#experiences"><div class="th"><img src="${img}" alt="" loading="lazy">${a?`<span class="aw">${a}</span>`:""}</div><div class="m"><span class="mono">${c}</span></div><h3>${t}</h3><p>${l}</p></a>`).join("");
+$("#strip").innerHTML=STRIP.map(([v,t,r])=>`<button data-play="${v}" data-title="${t}"><div class="th"><img src="${P(v)}" alt="" loading="lazy"></div><span class="t">${t}<em>${mmss(RT[v])}</em></span><span class="r">${r}</span></button>`).join("");
+$("#jobs").innerHTML=JOBS.map(j=>`<div class="row"><span class="y">${j[0]}</span><div><b>${j[1]}</b><span class="at">${j[2]}</span><span>${j[3]}</span></div></div>`).join("");
+$("#awards").innerHTML=AW.map(a=>`<div class="row"><span class="y">${a[0]}</span><div><b>${a[1]}</b><span>${a[2]}</span></div></div>`).join("");
+
+const lb=$("#lb"),lv=$("#lbVid");
+document.addEventListener("click",e=>{const b=e.target.closest("[data-play]");if(!b)return;
+  lv.src=`./${b.dataset.play}.mp4`;lv.poster=P(b.dataset.play);$("#lbTitle").textContent=b.dataset.title||"";lb.showModal();lv.play().catch(()=>{});});
+const close=()=>{lv.pause();lv.removeAttribute("src");lv.load();lb.close();};
+$("#lbClose").onclick=close;lb.addEventListener("click",e=>{if(e.target===lb)close();});lb.addEventListener("cancel",e=>{e.preventDefault();close();});
+</script>
+</body>
+</html>

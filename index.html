@@ -68,7 +68,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing
 .rec i{width:8px;height:8px;border-radius:50%;background:var(--coral);animation:blink 1.6s steps(2) infinite}
 @keyframes blink{50%{opacity:.2}}
 .hero-body{padding-block:40px 56px;display:grid;gap:28px}
-.hero h1{margin:0;font-size:clamp(52px,9.6vw,148px);line-height:.88;letter-spacing:-.045em;font-weight:800;font-variation-settings:"wdth" 78,"opsz" 96;text-wrap:balance}
+.hero h1{margin:0;font-size:clamp(50px,9vw,140px);line-height:.9;letter-spacing:.002em;word-spacing:.06em;font-weight:800;font-variation-settings:"wdth" 86,"opsz" 96;text-wrap:balance}
 .hero h1 em.s{font-size:1.08em;letter-spacing:-.02em}
 .hero-row{display:flex;flex-wrap:wrap;gap:28px 48px;align-items:flex-end;justify-content:space-between}
 .hero p.lede{margin:0;max-width:56ch;font-size:clamp(17px,1.5vw,20px);color:#E4D9CD}
@@ -138,10 +138,15 @@ section{scroll-margin-top:72px}
 .reel{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 @media (max-width:860px){.reel{grid-template-columns:repeat(2,1fr)}}
 .reel button{position:relative;aspect-ratio:16/9;border:0;padding:0;border-radius:10px;overflow:hidden;background:var(--ink-3)}
-.reel img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .3s;filter:brightness(.78)}
-.reel button:hover img{transform:scale(1.05);filter:brightness(1)}
-.reel span{position:absolute;left:10px;bottom:8px;right:10px;text-align:left;font-size:13px;font-weight:600;line-height:1.2;text-shadow:0 1px 8px rgba(0,0,0,.7)}
-.reel .rt{position:absolute;right:8px;top:8px;font-family:var(--f-mono);font-size:10px;background:rgba(14,12,11,.7);padding:3px 6px;border-radius:4px;color:var(--paper)}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.reel button:hover img{transform:scale(1.04)}
+.reel button::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,12,11,0) 45%,rgba(14,12,11,.85) 100%);pointer-events:none;transition:opacity .3s}
+.reel button:hover::after{opacity:.55}
+.reel .t{position:absolute;z-index:1;left:12px;right:12px;bottom:10px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;text-align:left;font-size:13px;font-weight:600;line-height:1.2;color:var(--paper)}
+.reel .t em{font-style:normal;font-family:var(--f-mono);font-size:10px;font-weight:400;letter-spacing:.06em;color:var(--mute);white-space:nowrap}
+.reel .pl{position:absolute;z-index:1;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;display:grid;place-items:center;background:rgba(243,238,230,.92);color:var(--ink);opacity:0;transform:scale(.85);transition:opacity .25s,transform .25s}
+.reel button:hover .pl,.reel button:focus-visible .pl{opacity:1;transform:none}
+.reel .pl svg{width:14px;height:14px;margin-left:2px}
 
 /* AWARDS */
 .awards{border-top:1px solid var(--line)}
@@ -191,7 +196,7 @@ section{scroll-margin-top:72px}
 /* CONTACT */
 .contact{padding-block:clamp(80px,12vw,150px) 48px;position:relative;overflow:hidden}
 .contact::before{content:"";position:absolute;width:900px;height:900px;right:-300px;bottom:-500px;background:radial-gradient(closest-side,rgba(255,110,60,.28),transparent);pointer-events:none}
-.contact h2{margin:0 0 36px;font-size:clamp(54px,10vw,150px);line-height:.86;letter-spacing:-.05em;font-weight:800;font-variation-settings:"wdth" 76}
+.contact h2{margin:0 0 36px;font-size:clamp(50px,9.2vw,140px);line-height:.9;letter-spacing:.002em;word-spacing:.06em;font-weight:800;font-variation-settings:"wdth" 86,"opsz" 96}
 .lines{display:grid;gap:0;border-top:1px solid var(--line);max-width:900px;position:relative}
 .line{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .line .v{font-size:clamp(20px,2.4vw,30px);font-weight:600;letter-spacing:-.02em;word-break:break-word;min-width:0}
@@ -246,7 +251,7 @@ dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap
   <div class="wrap">
     <a class="mark" href="#top" aria-label="Kazi Waleed Ahmed, home"><b>KW</b><span>Kazi Waleed Ahmed</span></a>
     <nav class="links" id="links">
-      <a href="#work">Work</a><a href="#film">Film</a><a href="#experiences">Experiences</a><a href="#awards">Awards</a><a href="#about">About</a>
+      <a href="#work">Work</a><a href="#film">Film</a><a href="#experiences">Experiences</a><a href="#awards">Awards</a><a href="#about">About</a><a href="lite.html">One-page ↗</a>
       <a class="btn hot" href="#contact">Get in touch</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="links">Menu</button>
@@ -265,7 +270,7 @@ dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap
       <span class="mono">Creative Director · Writer · Producer</span>
       <h1>I write it.<br>I direct it.<br>I <em class="s key">make</em> it.</h1>
       <div class="hero-row">
-        <p class="lede">I'm <strong>Kazi Waleed Ahmed</strong>, Regional Creative Lead at Helium Marketing in Dubai. For 8+ years I've turned consumer truths into campaigns for <strong>P&amp;G, PepsiCo, Unilever and PMI</strong> across the GCC and MENAP, and then produced them all the way to screen.</p>
+        <p class="lede">I'm <strong>Kazi Waleed Ahmed</strong>, Regional Creative Lead at Helium Marketing in Dubai. For 8+ years I've turned consumer truths into campaigns for <strong>P&amp;G, PepsiCo, Unilever and PMI</strong> across the GCC and MENAP, then produced them all the way to screen.</p>
         <div class="cta">
           <a class="btn hot" href="#work">See the work</a>
           <button class="btn" data-play="v42" data-title="DVC Showreel">
@@ -345,18 +350,19 @@ dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap
           <p class="big">I'm a creative who can write the script, run the pitch, sit in the edit and <span class="key">still care about the brief</span>.</p>
           <p>I started in production houses, owning budgets, crews and post, and moved into agencies to shape the ideas themselves. That mix is still how I work. I want the insight to be sharp, and I want it to survive the shoot.</p>
           <p>Today I lead brand strategy, creative direction and content production at Helium Marketing for PepsiCo, Unilever, Barbican and more. Before that I ran the P&amp;G and Philip Morris portfolios at Leo Burnett, and spent three years at MullenLowe on Unilever, Dalda and KIA.</p>
+          <p>Along the way I've steered Fortune 500 FMCG brands through repositioning, peak inflation and political disruption, building integrated brand plans that lifted affinity by up to <b>18%</b>, sales by <b>11%</b> and category share by <b>20%</b>. I like being in the room where it's decided where the investment goes.</p>
           <div class="how">
             <div><b>Start from a truth</b><span>Every campaign here began with a consumer insight, tested hard with research and focus groups.</span></div>
-            <div><b>Build teams that win</b><span>I mentor a think-tank of young creatives who originate proactive pitches every month.</span></div>
+            <div><b>Build teams that win</b><span>I mentor a think-tank of young creatives that originates 2–3 large pitches a month, at about 30% conversion in year one.</span></div>
             <div><b>Move fast with AI</b><span>I brought AI workflows into copy, design and video at two agencies, and kept the craft human.</span></div>
           </div>
           <div class="caps" aria-label="Capabilities">
-            <span>Concept &amp; campaign platforms</span><span>Brand strategy</span><span>Copywriting</span><span>Art direction</span><span>DVC &amp; film direction</span><span>End-to-end production</span><span>Pitching &amp; new business</span><span>Experience &amp; activation design</span><span>Packaging</span><span>AI production workflows</span><span>Team leadership</span>
+            <span>Concept &amp; campaign platforms</span><span>Integrated brand planning</span><span>Brand strategy</span><span>Consumer insight</span><span>Copywriting</span><span>Art direction</span><span>DVC &amp; film direction</span><span>End-to-end production</span><span>Pitching &amp; new business</span><span>Experience &amp; activation design</span><span>Packaging</span><span>AI production workflows</span><span>Team leadership</span>
           </div>
           <dl class="kv">
-            <dt>Tools</dt><dd>Claude, Higgsfield, Google Flow, Adobe CC, Final Cut Pro, Keynote, Monday</dd>
-            <dt>Languages</dt><dd>English, Urdu, Hindi</dd>
-            <dt>Education</dt><dd>BS Media Science, Film &amp; TV, Iqra University (Dean's Honor List)</dd>
+            <dt>Tools</dt><dd>Claude, Higgsfield, ElevenLabs, Google Flow, Adobe CC, Final Cut Pro, Keynote, Office 365</dd>
+            <dt>Languages</dt><dd>English, Urdu, Hindi · Arabic (learning)</dd>
+            <dt>Education</dt><dd>Bachelor of Media Science, Film &amp; TV, Iqra University · Dean's Honor List, CGPA 3.8<br>Computer Science studies, GIK Institute, 2014–2016</dd>
           </dl>
           <div class="yt">
             <button class="reel-one" data-play="v61" data-title="kaziwaleed on YouTube" style="border:0;padding:0;background:none"><img src="./image97.jpg" alt="Thumbnails from the kaziwaleed YouTube channel" loading="lazy"></button>
@@ -443,7 +449,7 @@ const WORK=[
   title:"White Now in full 3D",poster:P("v28"),loop:"v28",
   line:"A <b>26-asset CGI suite</b>, A/B tested live, with a <b>+32% retention lift</b>.",
   brief:"Launch Close Up White Now across social with assets that stop the scroll and keep people watching.",
-  idea:"Every asset fully 3D-generated, bold colour, one benefit each: stain remover, Hollywood smile, extra fresh. We set formats against platform data, ran A/B tests, and kept adjusting while the campaign was live.",
+  idea:"Every asset fully 3D-generated, bold colour, one benefit each: stain remover, Hollywood smile, extra fresh. We used performance data to optimise assets in real time, ran A/B tests, and kept adjusting while the campaign was live.",
   results:[["+32%","retention lift"],["26","3D assets"],["3","formats: 16:9, 4:5, 9:16"]],
   videos:[["v28","Carousel · all the packs"],["v24","3D Stain Remover"],["v29","Extra Fresh · 9:16"],["v26","Hollywood Smile · 9:16"],["v27","3D Hollywood Smile · 4:5"],["v30","3D Stain Remover · 4:5"],["v25","Stay ice-cold"]],images:[I(59),I(56),I(55)]},
  {id:"ariel",type:"campaign",client:"P&G · Ariel",agency:"Leo Burnett",year:"2024–25",role:"Creative Director",
@@ -537,13 +543,13 @@ const AWARDS=[
 ];
 
 const JOBS=[
- ["2025 – now","Regional Creative Lead","Helium Marketing · UAE","Strategy, creative direction and production for a $16M PepsiCo, Unilever and Barbican portfolio across 6 GCC markets. 40+ activations and campaigns a year, 4 live pitches a month."],
- ["2024 – 2025","Creative Director","Adcom Leo Burnett · PK","Led P&G (MENAP) and Philip Morris at Effie's 2025 Network Agency of the Year. Repositioned Safeguard, Always and ZYN."],
- ["2021 – 2024","Associate Creative Director","MullenLowe · PK","Led a team of 12 across 11 brands, reporting to the CCO. Won 2 new brands, won back 2, grew the retainer base by 20%."],
- ["2018 – 2021","Creative Producer","SEEME · Tall Man Films · Digital Invasion","Produced 16+ TVCs, an Effie-winning web series, and stood up an OTT and cinema division with 2 features."]
+ ["2025 – now","Regional Creative Lead","Helium Marketing · UAE","Strategy, creative direction and production for a $16M PepsiCo, Unilever and Barbican portfolio across 6 GCC markets. 40+ activations a year, 4 live pitches a month at a 60% win rate. Won Dubai Holding from its aligned network agency in our first pitch, and led DZRT's repositioning to 'Breathe Life'."],
+ ["2024 – 2025","Creative Director","Adcom Leo Burnett · PK","Led P&G (MENAP) and Philip Morris at Effie's 2025 Network Agency of the Year. Repositioned Safeguard, Always and ZYN, associate-directed 5 DVCs, and brought AI tools into the team's workflow."],
+ ["2021 – 2024","Associate Creative Director","MullenLowe · PK","Led a team of 12 across 11 brands in 2 markets, reporting to the CCO. Won 2 new brands, won back 2, grew the retainer base by 20%, and rebuilt Knorr's bouillon identity for Gen-Z."],
+ ["2018 – 2021","Creative Producer","SEEME · Tall Man Films · Digital Invasion","Produced, wrote and directed for EBM, National Foods, Domino's, Oppo and Bayer. 16+ TVCs, an Effie-winning web series, and an OTT and cinema division with 2 theatrical features."]
 ];
 
-const BRANDS=["P&G","PepsiCo","Unilever","Philip Morris","Always","Ariel","Safeguard","ZYN","Barbican","Close Up","Lay's","Sting","Doritos","Dalda","KIA","Lifebuoy","Knorr","Surf Excel","Haleon","EFU Life","Domino's","Oppo"];
+const BRANDS=["P&G","PepsiCo","Unilever","Philip Morris","Always","Ariel","Safeguard","ZYN","Barbican","DZRT","Dubai Holding","Close Up","Lay's","Sting","Doritos","Dalda","KIA","Lifebuoy","Knorr","Surf Excel","Haleon","EFU Life","Domino's","Oppo"];
 
 /* ============ HELPERS ============ */
 const $=s=>document.querySelector(s);
@@ -576,7 +582,7 @@ $("#filmStrip").innerHTML=FILM.map(f=>`<button class="card rv" data-play="${f.v}
   <div class="shot"><img src="${f.poster}" alt="" loading="lazy">${f.award?`<span class="award-pin">${f.award}</span>`:""}<span class="tag mono"><i class="dot"></i>${f.role}</span></div>
   <div class="meta"><span class="mono">${f.client} · ${f.year}</span><span class="mono">RT ${mmss(RT[f.v])}</span></div>
   <h3>${f.title}</h3><p class="res">${f.line}</p></button>`).join("");
-$("#reel").innerHTML=REEL.map(([v,t])=>`<button data-play="${v}" data-title="${t}"><img src="${P(v)}" alt="" loading="lazy"><span class="rt">${mmss(RT[v])}</span><span>${t}</span></button>`).join("");
+$("#reel").innerHTML=REEL.map(([v,t])=>`<button data-play="${v}" data-title="${t}" aria-label="Play ${t}"><img src="${P(v)}" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="t"><span>${t}</span><em>${mmss(RT[v])}</em></span></button>`).join("");
 $("#awardList").innerHTML=AWARDS.map(a=>`<div class="aw rv"><span class="y">${a[0]}</span><span class="n">${a[1]}<small>${a[2]}</small></span><span class="p">${a[3]}</span><span class="a">${a[4]}</span></div>`).join("");
 $("#jobs").innerHTML=JOBS.map(j=>`<div class="job rv"><span class="mono">${j[0]}</span><h4>${j[1]}</h4><span class="at">${j[2]}</span><p>${j[3]}</p></div>`).join("");
 
