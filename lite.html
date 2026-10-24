@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Kazi Waleed Ahmed · One page</title>
-<meta name="description" content="Kazi Waleed Ahmed, Regional Creative Lead in Dubai. Campaigns, film and brand experiences for P&G, PepsiCo, Unilever and PMI across the GCC and MENAP.">
+<title>Kazi Waleed Ahmed | Creative Director &amp; Producer</title>
+<meta name="description" content="Kazi Waleed Ahmed, creative director and producer in Dubai. Campaigns, film and brand experiences for P&G, PepsiCo, Unilever and PMI across the GCC and MENAP.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -82,7 +82,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing
 .w:hover .th img{transform:scale(1.03)}
 .w .pl{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(251,249,245,.94);color:var(--ink)}
 .w .pl svg{width:11px;height:11px;margin-left:2px}
-.w .aw{position:absolute;left:10px;top:10px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,249,245,.94);color:var(--accent);padding:5px 8px;border-radius:999px}
+.sash{position:absolute;z-index:3;left:-70px;top:44px;width:250px;transform:rotate(-45deg);text-align:center;padding:7px 0;background:var(--key);color:#1a0f08;font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.28);pointer-events:none}
 .w .m{margin-top:12px;display:flex;justify-content:space-between;gap:10px}
 .w h3{margin:4px 0 4px;font-size:19px;line-height:1.15;letter-spacing:-.01em;font-weight:700}
 .w p{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.45}
@@ -129,6 +129,36 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing
 .acts{display:flex;flex-wrap:wrap;gap:10px}
 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:18px;border-top:1px solid rgba(251,249,245,.14)}
 
+
+/* case pop-up */
+dialog.case{width:min(1080px,94vw);max-width:94vw;max-height:88vh;padding:0;border:0;border-radius:16px;background:var(--bg);color:var(--ink);box-shadow:0 30px 80px rgba(20,17,16,.35);overflow:auto;overscroll-behavior:contain}
+dialog.case::backdrop{background:rgba(20,17,16,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.case-top{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 18px;background:rgba(251,249,245,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.case-top .nx{display:flex;gap:6px}
+.case-top button{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;background:var(--bg)}
+.case-top button:hover{border-color:rgba(20,17,16,.4)}
+.case-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;padding:24px 22px 28px}
+.case-txt{display:grid;gap:16px;align-content:start}
+.case-txt h2{margin:2px 0 0;font-size:clamp(28px,3vw,40px);line-height:1;letter-spacing:-.01em;font-weight:800;font-variation-settings:"wdth" 86}
+.case-txt .blk{display:grid;gap:4px}
+.case-txt .blk p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.5}
+.case-txt ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.case-txt li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+.case-txt li b{font-size:19px;letter-spacing:-.01em}
+.case-txt li span{font-size:14px;color:var(--mute)}
+.case-media{display:grid;gap:10px;align-content:start;min-width:0}
+.case-media .player{border-radius:10px;overflow:hidden;background:#000;aspect-ratio:16/9}
+.case-media .player.tall{aspect-ratio:auto;display:flex;justify-content:center;max-height:62vh}
+.case-media video{width:100%;height:100%;background:#000;display:block}
+.case-media .player.tall video{width:auto;max-height:62vh}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.thumbs button{flex:0 0 132px;text-align:left;font-size:12px;line-height:1.25;color:var(--ink-2)}
+.thumbs img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;margin-bottom:4px;border:2px solid transparent}
+.thumbs button[aria-current="true"] img{border-color:var(--accent)}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gal img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:8px}
+@media (max-width:820px){.case-in{grid-template-columns:1fr}.case-media{order:-1}dialog.case{max-height:92vh;width:96vw}}
+.w .pl.cs{width:auto;padding:0 12px;border-radius:999px;font-size:12px;font-weight:600}
 /* lightbox */
 dialog.lb{width:min(1100px,94vw);max-width:94vw;padding:0;border:0;background:#000;border-radius:12px;overflow:hidden}
 dialog.lb::backdrop{background:rgba(20,17,16,.86)}
@@ -149,11 +179,11 @@ dialog.lb .bar .mono{color:#B8AEA6}
 <main class="wrap">
   <section class="intro">
     <div>
-      <span class="mono">Regional Creative Lead · Dubai</span>
-      <h1>I write it.<br>I direct it.<br>I <em class="s key">make</em> it.</h1>
+      <span class="mono">Creative Director &amp; Producer · Dubai</span>
+      <h1>Writer.<br>Director.<br><em class="s key">Storyteller</em>.</h1>
       <p class="lede">I'm <strong>Kazi Waleed Ahmed</strong>, a creative director who also writes, produces and directs. For 8+ years I've built integrated campaigns for <strong>P&amp;G, PepsiCo, Unilever and PMI</strong> across the GCC and MENAP, and repositioned some of the region's best-known brands along the way.</p>
       <div class="cta">
-        <button class="btn dark" data-play="v42" data-title="DVC Showreel"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg>Play the reel</button>
+        <button class="btn dark" data-play="reel" data-title="Showreel 2026 · selected work"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg>Play the reel</button>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
@@ -166,10 +196,10 @@ dialog.lb .bar .mono{color:#B8AEA6}
     <div class="stat"><b>60%</b><span>live pitch win rate against Omnicom and Publicis</span></div>
     <div class="stat"><b>9</b><span>awards, including Effie Gold, Dragons of Asia and iF Design</span></div>
   </div>
-  <p class="brands"><b>Brands</b> · P&amp;G · PepsiCo · Unilever · Philip Morris · Always · Ariel · Safeguard · ZYN · Barbican · DZRT · Close Up · Lay's · Sting · Dalda · KIA · Knorr · Dubai Holding</p>
+  <p class="brands"><b>Brands</b> · P&amp;G · PepsiCo · Unilever · Philip Morris · Always · Ariel · Safeguard · ZYN · Barbican · DZRT · Close Up · Lay's · Sting · Dalda · KIA · Knorr · Lifebuoy · Surf Excel · Dubai Holding</p>
 
   <section class="sec" id="work">
-    <div class="head"><h2>Selected <em class="s">work</em></h2><a href="index.html#work">All case studies ↗</a></div>
+    <div class="head"><h2>Selected <em class="s">work</em></h2><span class="mono">Tap a project for the case</span></div>
     <div class="work" id="work-grid"></div>
   </section>
 
@@ -218,42 +248,32 @@ dialog.lb .bar .mono{color:#B8AEA6}
   </div>
 </section>
 
+<dialog class="case" id="case" aria-labelledby="caseTitle">
+  <div class="case-top"><span class="mono" id="caseCrumb"></span><div class="nx"><button id="prevCase" aria-label="Previous project">←</button><button id="nextCase" aria-label="Next project">→</button><button id="closeCase">Close</button></div></div>
+  <div class="case-in" id="caseBody"></div>
+</dialog>
+
 <dialog class="lb" id="lb" aria-label="Video player">
   <video id="lbVid" controls playsinline></video>
   <div class="bar"><span class="mono" id="lbTitle"></span><button class="x" id="lbClose">Close</button></div>
 </dialog>
 
+<script src="data.js"></script>
 <script>
-const RT={v4:30,v36:46,v1:20,v2:30,v12:26,v20:60,v28:22,v41:56,v42:62,v43:26,v44:118,v45:196,v46:67,v47:60,v49:21,v53:56,v55:13,v57:45,v51:26,v52:15};
-const I=n=>`./image${n}.jpg`, P=v=>`./p-${v}.jpg`;
-const mmss=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+const $=s=>document.querySelector(s);
+const mmss=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(Math.round(s%60)).padStart(2,"0");
 const play='<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg>';
-
-const WORK=[
- ["v2",I(26),"P&G · Always","Shhh Nahi Shhhare","Reversed <b>two years of 20% share decline</b> by ending the silence around period discomfort.","Dragons of Asia"],
- ["v12",P("v12"),"PMI · ZYN","ZYN 2.0 launch slate","Wrote a <b>15-DVC slate</b> and CGI launches behind <b>20% category share growth</b>.",""],
- ["v1",I(21),"P&G · Safeguard","Hifazat Ka All-Rounder","The brand's <b>first repositioning in 20 years</b>, with an <b>18% affinity lift</b>.",""],
- ["v20",I(52),"Dalda Foods","Jahan Maamta Wahan Dalda","A thematic reboot with Fawad Khan that drove an <b>11% sales increase</b>.","Effie Gold"],
- ["",I(43),"Barbican · AFC Champions League","Raise The Game","A winning strategy and a <b>$700K+ campaign</b> across <b>4 GCC markets</b>.",""],
- ["v4",I(24),"P&G · Ariel","A value tier in peak inflation","Launched Ariel's value tier and <b>protected 78% of baseline volume</b>.","Dragons of Asia"],
- ["v41",I(71),"KIA Motors","Stonic · It's Got It All","Took on the <b>two best-selling sedans</b> with a multi-part DVC series.","iF Design"],
- ["v36",I(67),"EFU Life · WIN app","WIN at life, together","Built the <b>brand identity, strategy and 360° launch</b> for a wellness app.","Insurance Asia"],
- ["v28",P("v28"),"Unilever · Close Up","White Now in full 3D","A <b>26-asset CGI suite</b>, optimised live, with a <b>+32% retention lift</b>.",""]
-];
-const EXP=[
- [I(105),"PepsiCo · Sting","Sting × MDLBEAST Riyadh","A 10×10 m night-mode build: <b>14K+ samplings</b>, <b>240K+ organic impressions</b>.",""],
- [I(118),"PepsiCo · Flamin' Hot","Culinary tour, 3 cities","A spicy menu across Jeddah, Riyadh and Dammam, with a Kleenex twist.","Saudi Event Awards"],
- [I(110),"PepsiCo · Lay's","Original Chili is Back","A mall tasting challenge with a <b>Nielsen survey</b> built in.",""]
-];
+const byId=(list,id)=>list.find(p=>p.id===id);
+const PICKS=["always","zyn","safeguard","dalda","knorr","value","barbican","kia","closeup"];
 const STRIP=[
  ["v45","Teri Meri Kahaniyaan","Feature film · marketing"],["v46","Rawalpindi Express","Feature film · producer"],
  ["v47","Digestive Showtime","15M+ views in month one"],["v43","National Ketchup Factory","Web series · Effie Bronze"],
- ["v20","Dalda · Maamta","Writer · associate director"],
+ ["v20","Dalda · Maamta","Writer · associate director"],["v31","Surf Excel · Ziddi Daaghon Se Kia Darna","MullenLowe · thematic"],
  ["v53","KIA Stonic · Beach","Associate director"],["v55","Always · Shhh","Associate director"],
  ["v57","Ensure · Abbott TVC","Director"],["v44","Healthy Saudi Smile","Haleon KSA · producer"]
 ];
-const JOBS=[
- ["2025 – now","Regional Creative Lead","Helium Marketing · UAE","$16M PepsiCo, Unilever and Barbican portfolio across 6 GCC markets. Won Dubai Holding in our first pitch."],
+const LJOBS=[
+ ["2025 – now","Regional Creative Lead","Helium Marketing · UAE","Creative lead on a $16M Fortune 500 portfolio (PepsiCo, Unilever) plus Barbican across 6 GCC markets, from strategy and pitch to the finished shoot."],
  ["2024 – 25","Creative Director","Adcom Leo Burnett · PK","P&G (MENAP) and Philip Morris at Effie's 2025 Network Agency of the Year."],
  ["2021 – 24","Associate Creative Director","MullenLowe · PK","Team of 12 across 11 brands. Won 2 new brands, won back 2, retainer base up 20%."],
  ["2018 – 21","Creative Producer","SEEME · Tall Man · Digital Invasion","16+ TVCs, 2 theatrical features and an Effie-winning web series."]
@@ -267,21 +287,53 @@ const AW=[
  ["2023","iF Design Award","KIA Stonic · #PlayItYoung"],
  ["2020","Effie Bronze","National Ketchup Factory web series"]
 ];
-const $=s=>document.querySelector(s);
-$("#work-grid").innerHTML=WORK.map(([v,img,c,t,l,a])=>{
-  const tag=v?`button data-play="${v}" data-title="${c} · ${t}"`:`a href="index.html#work"`;
-  return `<${tag} class="w"><div class="th"><img src="${img}" alt="" loading="lazy">${a?`<span class="aw">${a}</span>`:""}${v?`<span class="pl">${play}</span>`:""}</div>
-  <div class="m"><span class="mono">${c}</span>${v?`<span class="mono">${mmss(RT[v])}</span>`:""}</div><h3>${t}</h3><p>${l}</p></${v?"button":"a"}>`}).join("");
-$("#exp-grid").innerHTML=EXP.map(([img,c,t,l,a])=>`<a class="w" href="index.html#experiences"><div class="th"><img src="${img}" alt="" loading="lazy">${a?`<span class="aw">${a}</span>`:""}</div><div class="m"><span class="mono">${c}</span></div><h3>${t}</h3><p>${l}</p></a>`).join("");
+const tile=(p,list)=>`<button class="w" data-case="${p.id}" data-list="${list}"><div class="th"><img src="${p.poster}" alt="" loading="lazy">${p.award?`<span class="sash">${p.award}</span>`:""}<span class="pl cs">View case</span></div>
+  <div class="m"><span class="mono">${p.client}</span><span class="mono">${p.year}</span></div><h3>${p.title}</h3><p>${p.line}</p></button>`;
+$("#work-grid").innerHTML=PICKS.map(id=>tile(byId(WORK,id),"work")).join("");
+$("#exp-grid").innerHTML=EXP.map(p=>tile(p,"exp")).join("");
 $("#strip").innerHTML=STRIP.map(([v,t,r])=>`<button data-play="${v}" data-title="${t}"><div class="th"><img src="${P(v)}" alt="" loading="lazy"></div><span class="t">${t}<em>${mmss(RT[v])}</em></span><span class="r">${r}</span></button>`).join("");
-$("#jobs").innerHTML=JOBS.map(j=>`<div class="row"><span class="y">${j[0]}</span><div><b>${j[1]}</b><span class="at">${j[2]}</span><span>${j[3]}</span></div></div>`).join("");
+$("#jobs").innerHTML=LJOBS.map(j=>`<div class="row"><span class="y">${j[0]}</span><div><b>${j[1]}</b><span class="at">${j[2]}</span><span>${j[3]}</span></div></div>`).join("");
 $("#awards").innerHTML=AW.map(a=>`<div class="row"><span class="y">${a[0]}</span><div><b>${a[1]}</b><span>${a[2]}</span></div></div>`).join("");
 
+/* case pop-up */
+const dlg=$("#case"); let curList=[],curIdx=0;
+const vidHTML=v=>`<video src="./${v}.mp4" poster="${P(v)}" controls playsinline autoplay></video>`;
+function stopMedia(){ dlg.querySelectorAll("video").forEach(v=>v.pause()); }
+function openCase(list,id){
+  curList=list==="exp"?EXP:PICKS.map(i=>byId(WORK,i)); curIdx=curList.findIndex(p=>p.id===id); renderCase();
+  if(!dlg.open) dlg.showModal(); dlg.scrollTop=0;
+}
+function renderCase(){
+  const p=curList[curIdx], vids=p.videos||[], first=vids[0];
+  $("#caseCrumb").textContent=`${p.client} · ${p.agency} · ${p.year}`;
+  const media=first?`<div class="player ${TALL.has(first[0])?"tall":""}" id="player">${vidHTML(first[0])}</div>
+    ${vids.length>1?`<div class="thumbs">${vids.map((v,i)=>`<button data-v="${v[0]}" aria-current="${i===0}"><img src="${P(v[0])}" alt="" loading="lazy">${v[1]}</button>`).join("")}</div>`:""}`:"";
+  const imgs=(p.images||[]).slice(0,first?4:6).map(src=>`<img src="${src}" alt="" loading="lazy">`).join("");
+  $("#caseBody").innerHTML=`<div class="case-txt"><span class="mono">${p.role}</span><h2 id="caseTitle">${p.title}</h2>
+    <div class="blk"><span class="mono">The brief</span><p>${p.brief}</p></div>
+    <div class="blk"><span class="mono">The idea</span><p>${p.idea}</p></div>
+    <div class="blk"><span class="mono">What it did</span><ul>${p.results.map(r=>`<li><b class="key">${r[0]}</b><span>${r[1]}</span></li>`).join("")}</ul></div></div>
+    <div class="case-media">${media}${imgs?`<div class="gal">${imgs}</div>`:""}</div>`;
+  $("#caseBody").querySelectorAll(".thumbs button").forEach(b=>b.onclick=()=>{
+    const pl=$("#player"); pl.className="player"+(TALL.has(b.dataset.v)?" tall":""); pl.innerHTML=vidHTML(b.dataset.v);
+    $("#caseBody").querySelectorAll(".thumbs button").forEach(x=>x.setAttribute("aria-current",x===b));
+  });
+}
+const step=d=>{stopMedia();curIdx=(curIdx+d+curList.length)%curList.length;renderCase();dlg.scrollTop=0;};
+$("#nextCase").onclick=()=>step(1); $("#prevCase").onclick=()=>step(-1); $("#closeCase").onclick=()=>dlg.close();
+dlg.addEventListener("close",()=>{stopMedia();$("#caseBody").innerHTML="";});
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close();});
+
+/* lightbox */
 const lb=$("#lb"),lv=$("#lbVid");
-document.addEventListener("click",e=>{const b=e.target.closest("[data-play]");if(!b)return;
-  lv.src=`./${b.dataset.play}.mp4`;lv.poster=P(b.dataset.play);$("#lbTitle").textContent=b.dataset.title||"";lb.showModal();lv.play().catch(()=>{});});
-const close=()=>{lv.pause();lv.removeAttribute("src");lv.load();lb.close();};
-$("#lbClose").onclick=close;lb.addEventListener("click",e=>{if(e.target===lb)close();});lb.addEventListener("cancel",e=>{e.preventDefault();close();});
+document.addEventListener("click",e=>{
+  const c=e.target.closest("[data-case]"); if(c){ openCase(c.dataset.list,c.dataset.case); return; }
+  const b=e.target.closest("[data-play]"); if(!b) return;
+  $("#lbTitle").textContent=b.dataset.title||""; lb.showModal();
+  if(b.dataset.play==="reel") playReel(lv); else { lv.onended=null; lv.src=`./${b.dataset.play}.mp4`; lv.poster=P(b.dataset.play); lv.play().catch(()=>{}); }
+});
+const close=()=>{lv.onended=null;lv.pause();lv.removeAttribute("src");lv.load();lb.close();};
+$("#lbClose").onclick=close; lb.addEventListener("click",e=>{if(e.target===lb)close();}); lb.addEventListener("cancel",e=>{e.preventDefault();close();});
 </script>
 </body>
 </html>
