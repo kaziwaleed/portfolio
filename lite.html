@@ -80,6 +80,10 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing
 .w .th{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--bg-2)}
 .w .th img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .w:hover .th img{transform:scale(1.03)}
+.th video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s;background:#000}
+.playing .th video{opacity:1}
+.w .th img.troph,.w .th svg.troph{position:absolute;z-index:4;left:138px;top:10px;height:54px;width:auto;max-width:60px;object-fit:contain;transform:none!important;transition:none;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5));pointer-events:none}
+.w .th svg.troph.laurel{width:46px;height:46px;color:#F6B25C}
 .w .pl{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(251,249,245,.94);color:var(--ink)}
 .w .pl svg{width:11px;height:11px;margin-left:2px}
 .sash{position:absolute;z-index:3;left:-70px;top:44px;width:250px;transform:rotate(-45deg);text-align:center;padding:7px 0;background:var(--key);color:#1a0f08;font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.28);pointer-events:none}
@@ -118,6 +122,19 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing
 .row b{display:block;font-size:16px;line-height:1.25}
 .row span{display:block;font-size:14px;color:var(--ink-2);line-height:1.45}
 .row span.at{color:var(--accent);font-size:13.5px;margin-top:1px}
+.row.aw{grid-template-columns:96px 1fr 52px;align-items:center}
+.row.aw .tr{display:flex;justify-content:flex-end;align-items:center;color:var(--accent)}
+.row.aw .troph{height:44px;width:auto;max-width:52px;object-fit:contain;filter:drop-shadow(0 3px 6px rgba(20,17,16,.28))}
+.row.aw .troph.laurel{width:42px;height:42px}
+/* youtube */
+.yt{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:center;border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--bg-2)}
+.yt .pic{position:relative;border-radius:10px;overflow:hidden;display:block;width:100%}
+.yt .pic img{width:100%;display:block}
+.yt .pic .pl{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(251,249,245,.94)}
+.yt .pic .pl svg{width:12px;height:12px;margin-left:2px}
+.yt h3{margin:8px 0 8px;font-size:clamp(22px,2.4vw,30px);line-height:1.05;letter-spacing:-.01em;font-weight:800;font-variation-settings:"wdth" 86}
+.yt p{margin:0 0 16px;color:var(--ink-2);font-size:15px}
+@media (max-width:760px){.yt{grid-template-columns:1fr}}
 
 /* contact */
 .contact{margin-top:clamp(52px,7vw,88px);background:var(--ink);color:var(--bg);padding-block:clamp(40px,6vw,64px) 28px}
@@ -129,6 +146,16 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing
 .acts{display:flex;flex-wrap:wrap;gap:10px}
 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:18px;border-top:1px solid rgba(251,249,245,.14)}
 
+
+/* hover previews */
+if(matchMedia("(hover:hover) and (pointer:fine)").matches && !matchMedia("(prefers-reduced-motion:reduce)").matches){
+  document.querySelectorAll("button:has(video[data-src])").forEach(c=>{
+    const v=c.querySelector("video[data-src]"), st=+v.dataset.start||0;
+    if(st) v.addEventListener("timeupdate",()=>{ if(v.currentTime>st+6) v.currentTime=st; });
+    c.addEventListener("pointerenter",()=>{ if(!v.src){ v.src=v.dataset.src; if(st) v.addEventListener("loadedmetadata",()=>{v.currentTime=st},{once:true}); } else if(st) v.currentTime=st; v.play().then(()=>c.classList.add("playing")).catch(()=>{}); });
+    c.addEventListener("pointerleave",()=>{ v.pause(); c.classList.remove("playing"); });
+  });
+}
 
 /* case pop-up */
 dialog.case{width:min(1080px,94vw);max-width:94vw;max-height:88vh;padding:0;border:0;border-radius:16px;background:var(--bg);color:var(--ink);box-shadow:0 30px 80px rgba(20,17,16,.35);overflow:auto;overscroll-behavior:contain}
@@ -224,6 +251,13 @@ dialog.lb .bar .mono{color:#B8AEA6}
     </div>
   </section>
 
+  <section class="sec" id="youtube">
+    <div class="yt">
+      <button class="pic" data-play="v61" data-title="kaziwaleed on YouTube" aria-label="Play a clip from the kaziwaleed YouTube channel"><img src="./image97.jpg" alt="Thumbnails from the kaziwaleed YouTube channel" loading="lazy"><span class="pl"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg></span></button>
+      <div><span class="mono">On the side</span><h3>I run a <em class="s">YouTube</em> channel</h3><p>Where I think out loud about culture, cinema and Pakistan's pop history. It keeps me sharp beyond the brief.</p><a class="btn" href="https://youtube.com/kaziwaleed" target="_blank" rel="noopener">youtube.com/kaziwaleed ↗</a></div>
+    </div>
+  </section>
+
   <section class="sec">
     <div class="how">
       <p class="big">A creative who can write the script, run the pitch, sit in the edit and <span class="key">still care about the brief</span>.</p>
@@ -264,36 +298,38 @@ const $=s=>document.querySelector(s);
 const mmss=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(Math.round(s%60)).padStart(2,"0");
 const play='<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg>';
 const byId=(list,id)=>list.find(p=>p.id===id);
+const vsrc=v=>`./${v}.mp4`;
 const PICKS=["always","zyn","safeguard","dalda","knorr","value","barbican","kia","closeup"];
+const HOV={v45:12,v46:28,v47:24,v43:3,v23:2,v20:6,v31:3,v53:3,v55:3,v57:3,v44:20};
 const STRIP=[
  ["v45","Teri Meri Kahaniyaan","Feature film · marketing"],["v46","Rawalpindi Express","Feature film · producer"],
  ["v47","Digestive Showtime","15M+ views in month one"],["v43","National Ketchup Factory","Web series · Effie Bronze"],
- ["v20","Dalda · Maamta","Writer · associate director"],["v31","Surf Excel · Ziddi Daaghon Se Kia Darna","MullenLowe · thematic"],
+ ["v23","Dalda · Eid se Pehle Eidi","Ramadan · associate director"],["v20","Dalda · Maamta","Writer"],["v31","Surf Excel · Ziddi Daaghon Se Kia Darna","MullenLowe · thematic"],
  ["v53","KIA Stonic · Beach","Associate director"],["v55","Always · Shhh","Associate director"],
  ["v57","Ensure · Abbott TVC","Director"],["v44","Healthy Saudi Smile","Haleon KSA · producer"]
 ];
 const LJOBS=[
- ["2025 – now","Regional Creative Lead","Helium Marketing · UAE","Creative lead on a $16M Fortune 500 portfolio (PepsiCo, Unilever) plus Barbican across 6 GCC markets, from strategy and pitch to the finished shoot."],
+ ["2025 – now","Regional Creative Lead","Helium Marketing · UAE","Creative lead on a $16M Fortune 500 portfolio (PepsiCo, Unilever) plus Barbican across 6 GCC markets, from strategy and pitch to the finished campaigns."],
  ["2024 – 25","Creative Director","Adcom Leo Burnett · PK","P&G (MENAP) and Philip Morris at Effie's 2025 Network Agency of the Year."],
  ["2021 – 24","Associate Creative Director","MullenLowe · PK","Team of 12 across 11 brands. Won 2 new brands, won back 2, retainer base up 20%."],
  ["2018 – 21","Creative Producer","SEEME · Tall Man · Digital Invasion","16+ TVCs, 2 theatrical features and an Effie-winning web series."]
 ];
 const AW=[
- ["2025","Saudi Event Awards · Nominee","Flamin' Hot culinary activation"],
- ["2025","Dragons of Asia · Social Good","Always · Changing the Narrative"],
- ["2024","Dragons of Asia · Sustainability","Ariel · Sustainability at Home"],
- ["2023","Effie Gold","Dalda · Jahan Maamta Wahan Dalda"],
- ["2023","Effie Bronze","Tullo · Restaging the Kids"],
- ["2023","iF Design Award","KIA Stonic · #PlayItYoung"],
- ["2020","Effie Bronze","National Ketchup Factory web series"]
+ ["2025","Saudi Event Awards · Nominee","Flamin' Hot culinary activation","laurel"],
+ ["2025","Dragons of Asia · Social Good","Always · Changing the Narrative","dragon-gold"],
+ ["2024","Dragons of Asia · Sustainability","Ariel · Sustainability at Home","dragon-silver"],
+ ["2023","Effie Gold","Dalda · Jahan Maamta Wahan Dalda","effie-gold"],
+ ["2023","Effie Bronze","Tullo · Restaging the Kids","effie-bronze"],
+ ["2023","iF Design Award","KIA Stonic · #PlayItYoung","if"],
+ ["2020","Effie Bronze","National Ketchup Factory web series","effie-bronze"]
 ];
-const tile=(p,list)=>`<button class="w" data-case="${p.id}" data-list="${list}"><div class="th"><img src="${p.poster}" alt="" loading="lazy">${p.award?`<span class="sash">${p.award}</span>`:""}<span class="pl cs">View case</span></div>
+const tile=(p,list)=>`<button class="w" data-case="${p.id}" data-list="${list}"><div class="th"><img src="${p.poster}" alt="" loading="lazy">${p.loop?`<video muted loop playsinline preload="none" data-src="${vsrc(p.loop)}"></video>`:""}${p.award?`<span class="sash">${p.award}</span>${TR(p.trophy)}`:""}<span class="pl cs">View case</span></div>
   <div class="m"><span class="mono">${p.client}</span><span class="mono">${p.year}</span></div><h3>${p.title}</h3><p>${p.line}</p></button>`;
 $("#work-grid").innerHTML=PICKS.map(id=>tile(byId(WORK,id),"work")).join("");
 $("#exp-grid").innerHTML=EXP.map(p=>tile(p,"exp")).join("");
-$("#strip").innerHTML=STRIP.map(([v,t,r])=>`<button data-play="${v}" data-title="${t}"><div class="th"><img src="${P(v)}" alt="" loading="lazy"></div><span class="t">${t}<em>${mmss(RT[v])}</em></span><span class="r">${r}</span></button>`).join("");
+$("#strip").innerHTML=STRIP.map(([v,t,r])=>`<button data-play="${v}" data-title="${t}"><div class="th"><img src="${P(v)}" alt="" loading="lazy">${HOV[v]!=null?`<video muted loop playsinline preload="none" data-src="${vsrc(v)}" data-start="${HOV[v]}"></video>`:""}</div><span class="t">${t}<em>${mmss(RT[v])}</em></span><span class="r">${r}</span></button>`).join("");
 $("#jobs").innerHTML=LJOBS.map(j=>`<div class="row"><span class="y">${j[0]}</span><div><b>${j[1]}</b><span class="at">${j[2]}</span><span>${j[3]}</span></div></div>`).join("");
-$("#awards").innerHTML=AW.map(a=>`<div class="row"><span class="y">${a[0]}</span><div><b>${a[1]}</b><span>${a[2]}</span></div></div>`).join("");
+$("#awards").innerHTML=AW.map(a=>`<div class="row aw"><span class="y">${a[0]}</span><div><b>${a[1]}</b><span>${a[2]}</span></div><span class="tr">${TR(a[3])}</span></div>`).join("");
 
 /* case pop-up */
 const dlg=$("#case"); let curList=[],curIdx=0;

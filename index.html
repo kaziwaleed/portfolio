@@ -131,7 +131,7 @@ section{scroll-margin-top:72px}
 /* FILM STRIP */
 .strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,30%);gap:20px;overflow-x:auto;padding-bottom:18px;scroll-snap-type:x mandatory;scrollbar-color:var(--ink-3) transparent}
 .strip .card{scroll-snap-align:start;grid-column:auto}
-.strip .shot{aspect-ratio:2/3}
+.strip .shot{aspect-ratio:16/10}
 @media (max-width:700px){.strip{grid-auto-columns:78%}}
 .sub-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:72px 0 24px;border-top:1px solid var(--line);padding-top:22px;flex-wrap:wrap}
 .sub-h h3{margin:0;font-size:clamp(26px,3vw,38px);letter-spacing:-.03em;font-weight:700}
@@ -156,7 +156,13 @@ section{scroll-margin-top:72px}
 .aw .n small{display:block;font-weight:400;font-size:14px;color:var(--amber);letter-spacing:0;margin-top:2px}
 .aw .p{color:#DCD0C3}
 .aw .a{color:var(--mute);font-size:14px;text-align:right}
-@media (max-width:760px){.aw{grid-template-columns:70px minmax(0,1fr)}.aw .p,.aw .a{grid-column:2;text-align:left}}
+.aw{grid-template-columns:90px minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,.9fr) 56px;align-items:center}
+.aw .tr{display:flex;justify-content:flex-end;align-items:center;color:var(--key-c,#F0843F)}
+.aw .troph{height:46px;width:auto;max-width:56px;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
+.aw .troph.laurel{width:46px;height:46px}
+.shot img.troph,.shot svg.troph{position:absolute;z-index:4;left:138px;top:10px;height:54px;width:auto;max-width:60px;inset:10px auto auto 138px;object-fit:contain;transform:none!important;transition:none;filter:drop-shadow(0 4px 10px rgba(0,0,0,.55));pointer-events:none}
+.shot svg.troph.laurel{width:46px;height:46px;color:#F6B25C}
+@media (max-width:760px){.aw{grid-template-columns:70px minmax(0,1fr) 44px}.aw .p,.aw .a{grid-column:2;text-align:left}.aw .tr{grid-column:3;grid-row:1}}
 
 /* JOURNEY */
 .jobs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
@@ -362,7 +368,6 @@ dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap
           <dl class="kv">
             <dt>Tools</dt><dd>Claude, Higgsfield, ElevenLabs, Google Flow, Adobe CC, Final Cut Pro, Keynote, Office 365</dd>
             <dt>Languages</dt><dd>English, Urdu, Hindi · Arabic (learning)</dd>
-            <dt>Education</dt><dd>Bachelor of Media Science, Film &amp; TV, Iqra University · Dean's Honor List, CGPA 3.8<br>Computer Science studies, GIK Institute, 2014–2016</dd>
           </dl>
           <div class="yt">
             <button class="reel-one" data-play="v61" data-title="kaziwaleed on YouTube" style="border:0;padding:0;background:none"><img src="./image97.jpg" alt="Thumbnails from the kaziwaleed YouTube channel" loading="lazy"></button>
@@ -421,10 +426,10 @@ $("#marquee").innerHTML=[...BRANDS,...BRANDS].map(b=>`<span>${b}</span>`).join("
 
 /* cards */
 function card(p,list,extraCls=""){
-  const rt = p.loop? `<span class="mono">RT ${mmss(RT[p.loop])}</span>` : (p.images?`<span class="mono">${p.images.length} frames</span>`:"");
+  const rt = RT[p.loop]? `<span class="mono">RT ${mmss(RT[p.loop])}</span>` : (p.images?`<span class="mono">${p.images.length} frames</span>`:"");
   return `<button class="card ${p.size||""} ${extraCls} rv" data-id="${p.id}" data-list="${list}" data-type="${p.type}">
     <div class="shot"><img src="${p.poster}" alt="" loading="lazy">${p.loop?`<video muted loop playsinline preload="none" data-src="${vsrc(p.loop)}"></video>`:""}
-      ${p.award?`<span class="sash">${p.award}</span>`:""}
+      ${p.award?`<span class="sash">${p.award}</span>${TR(p.trophy)}`:""}
       <span class="tag mono"><i class="dot"></i>${p.client}</span></div>
     <div class="meta"><span class="mono">${p.agency} · ${p.year}</span>${rt}</div>
     <h3>${p.title}</h3><p class="res">${p.line}</p></button>`;
@@ -432,18 +437,20 @@ function card(p,list,extraCls=""){
 $("#workGrid").innerHTML=WORK.map(p=>card(p,"work")).join("");
 $("#expGrid").innerHTML=EXP.map((p,i)=>card(p,"exp",i?"":"")).join("");
 $("#filmStrip").innerHTML=FILM.map(f=>`<button class="card rv" data-play="${f.v}" data-title="${f.title}">
-  <div class="shot"><img src="${f.poster}" alt="" loading="lazy">${f.award?`<span class="sash">${f.award}</span>`:""}<span class="tag mono"><i class="dot"></i>${f.role}</span></div>
+  <div class="shot"><img src="${f.poster}" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="${vsrc(f.v)}" data-start="${f.hov||0}"></video>${f.award?`<span class="sash">${f.award}</span>${TR(f.trophy)}`:""}<span class="tag mono"><i class="dot"></i>${f.role}</span></div>
   <div class="meta"><span class="mono">${f.client} · ${f.year}</span><span class="mono">RT ${mmss(RT[f.v])}</span></div>
   <h3>${f.title}</h3><p class="res">${f.line}</p></button>`).join("");
 $("#reel").innerHTML=REEL.map(([v,t])=>`<button data-play="${v}" data-title="${t}" aria-label="Play ${t}"><img src="${P(v)}" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="t"><span>${t}</span><em>${mmss(RT[v])}</em></span></button>`).join("");
-$("#awardList").innerHTML=AWARDS.map(a=>`<div class="aw rv"><span class="y">${a[0]}</span><span class="n">${a[1]}<small>${a[2]}</small></span><span class="p">${a[3]}</span><span class="a">${a[4]}</span></div>`).join("");
+$("#awardList").innerHTML=AWARDS.map(a=>`<div class="aw rv"><span class="y">${a[0]}</span><span class="n">${a[1]}<small>${a[2]}</small></span><span class="p">${a[3]}</span><span class="a">${a[4]}</span>${TR(a[5])?`<span class="tr">${TR(a[5])}</span>`:""}</div>`).join("");
 $("#jobs").innerHTML=JOBS.map(j=>`<div class="job rv"><span class="mono">${j[0]}</span><h4>${j[1]}</h4><span class="at">${j[2]}</span><p>${j[3]}</p></div>`).join("");
 
 /* hover previews (pointer devices only) */
 const canHover=matchMedia("(hover:hover) and (pointer:fine)").matches && !matchMedia("(prefers-reduced-motion:reduce)").matches;
 document.querySelectorAll(".card").forEach(c=>{
   const v=c.querySelector("video[data-src]"); if(!v||!canHover) return;
-  c.addEventListener("pointerenter",()=>{ if(!v.src) v.src=v.dataset.src; v.play().then(()=>c.classList.add("playing")).catch(()=>{}); });
+  const st=+v.dataset.start||0;
+  if(st) v.addEventListener("timeupdate",()=>{ if(v.currentTime>st+6) v.currentTime=st; });
+  c.addEventListener("pointerenter",()=>{ if(!v.src){ v.src=v.dataset.src; if(st) v.addEventListener("loadedmetadata",()=>{v.currentTime=st},{once:true}); } else if(st) v.currentTime=st; v.play().then(()=>c.classList.add("playing")).catch(()=>{}); });
   c.addEventListener("pointerleave",()=>{ v.pause(); c.classList.remove("playing"); });
 });
 
