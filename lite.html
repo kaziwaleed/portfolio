@@ -147,16 +147,6 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing
 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:18px;border-top:1px solid rgba(251,249,245,.14)}
 
 
-/* hover previews */
-if(matchMedia("(hover:hover) and (pointer:fine)").matches && !matchMedia("(prefers-reduced-motion:reduce)").matches){
-  document.querySelectorAll("button:has(video[data-src])").forEach(c=>{
-    const v=c.querySelector("video[data-src]"), st=+v.dataset.start||0;
-    if(st) v.addEventListener("timeupdate",()=>{ if(v.currentTime>st+6) v.currentTime=st; });
-    c.addEventListener("pointerenter",()=>{ if(!v.src){ v.src=v.dataset.src; if(st) v.addEventListener("loadedmetadata",()=>{v.currentTime=st},{once:true}); } else if(st) v.currentTime=st; v.play().then(()=>c.classList.add("playing")).catch(()=>{}); });
-    c.addEventListener("pointerleave",()=>{ v.pause(); c.classList.remove("playing"); });
-  });
-}
-
 /* case pop-up */
 dialog.case{width:min(1080px,94vw);max-width:94vw;max-height:88vh;padding:0;border:0;border-radius:16px;background:var(--bg);color:var(--ink);box-shadow:0 30px 80px rgba(20,17,16,.35);overflow:auto;overscroll-behavior:contain}
 dialog.case::backdrop{background:rgba(20,17,16,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
@@ -330,6 +320,16 @@ $("#exp-grid").innerHTML=EXP.map(p=>tile(p,"exp")).join("");
 $("#strip").innerHTML=STRIP.map(([v,t,r])=>`<button data-play="${v}" data-title="${t}"><div class="th"><img src="${P(v)}" alt="" loading="lazy">${HOV[v]!=null?`<video muted loop playsinline preload="none" data-src="${vsrc(v)}" data-start="${HOV[v]}"></video>`:""}</div><span class="t">${t}<em>${mmss(RT[v])}</em></span><span class="r">${r}</span></button>`).join("");
 $("#jobs").innerHTML=LJOBS.map(j=>`<div class="row"><span class="y">${j[0]}</span><div><b>${j[1]}</b><span class="at">${j[2]}</span><span>${j[3]}</span></div></div>`).join("");
 $("#awards").innerHTML=AW.map(a=>`<div class="row aw"><span class="y">${a[0]}</span><div><b>${a[1]}</b><span>${a[2]}</span></div><span class="tr">${TR(a[3])}</span></div>`).join("");
+
+/* hover previews */
+if(matchMedia("(hover:hover) and (pointer:fine)").matches && !matchMedia("(prefers-reduced-motion:reduce)").matches){
+  document.querySelectorAll("button:has(video[data-src])").forEach(c=>{
+    const v=c.querySelector("video[data-src]"), st=+v.dataset.start||0;
+    if(st) v.addEventListener("timeupdate",()=>{ if(v.currentTime>st+6) v.currentTime=st; });
+    c.addEventListener("pointerenter",()=>{ if(!v.src){ v.src=v.dataset.src; if(st) v.addEventListener("loadedmetadata",()=>{v.currentTime=st},{once:true}); } else if(st) v.currentTime=st; v.play().then(()=>c.classList.add("playing")).catch(()=>{}); });
+    c.addEventListener("pointerleave",()=>{ v.pause(); c.classList.remove("playing"); });
+  });
+}
 
 /* case pop-up */
 const dlg=$("#case"); let curList=[],curIdx=0;
