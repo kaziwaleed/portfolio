@@ -158,7 +158,7 @@ section{scroll-margin-top:72px}
 .aw .a{color:var(--mute);font-size:14px;text-align:right}
 .aw{grid-template-columns:90px minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,.9fr) 56px;align-items:center}
 .aw .tr{display:flex;justify-content:flex-end;align-items:center;color:var(--key-c,#F0843F)}
-.aw .troph{height:46px;width:auto;max-width:56px;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
+.aw .troph{height:46px;width:auto;max-width:56px;object-fit:contain}
 .aw .troph.laurel{width:46px;height:46px}
 .shot img.troph,.shot svg.troph{position:absolute;z-index:4;left:138px;top:10px;height:54px;width:auto;max-width:60px;inset:10px auto auto 138px;object-fit:contain;transform:none!important;transition:none;filter:drop-shadow(0 4px 10px rgba(0,0,0,.55));pointer-events:none}
 .shot svg.troph.laurel{width:46px;height:46px;color:#F6B25C}
@@ -429,7 +429,7 @@ function card(p,list,extraCls=""){
   const rt = RT[p.loop]? `<span class="mono">RT ${mmss(RT[p.loop])}</span>` : (p.images?`<span class="mono">${p.images.length} frames</span>`:"");
   return `<button class="card ${p.size||""} ${extraCls} rv" data-id="${p.id}" data-list="${list}" data-type="${p.type}">
     <div class="shot"><img src="${p.poster}" alt="" loading="lazy">${p.loop?`<video muted loop playsinline preload="none" data-src="${vsrc(p.loop)}"></video>`:""}
-      ${p.award?`<span class="sash">${p.award}</span>${TR(p.trophy)}`:""}
+      ${p.award?`<span class="sash">${p.award}</span>`:""}
       <span class="tag mono"><i class="dot"></i>${p.client}</span></div>
     <div class="meta"><span class="mono">${p.agency} · ${p.year}</span>${rt}</div>
     <h3>${p.title}</h3><p class="res">${p.line}</p></button>`;
@@ -437,7 +437,7 @@ function card(p,list,extraCls=""){
 $("#workGrid").innerHTML=WORK.map(p=>card(p,"work")).join("");
 $("#expGrid").innerHTML=EXP.map((p,i)=>card(p,"exp",i?"":"")).join("");
 $("#filmStrip").innerHTML=FILM.map(f=>`<button class="card rv" data-play="${f.v}" data-title="${f.title}">
-  <div class="shot"><img src="${f.poster}" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="${vsrc(f.v)}" data-start="${f.hov||0}"></video>${f.award?`<span class="sash">${f.award}</span>${TR(f.trophy)}`:""}<span class="tag mono"><i class="dot"></i>${f.role}</span></div>
+  <div class="shot"><img src="${f.poster}" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="${vsrc(f.v)}" data-start="${f.hov||0}"></video>${f.award?`<span class="sash">${f.award}</span>`:""}<span class="tag mono"><i class="dot"></i>${f.role}</span></div>
   <div class="meta"><span class="mono">${f.client} · ${f.year}</span><span class="mono">RT ${mmss(RT[f.v])}</span></div>
   <h3>${f.title}</h3><p class="res">${f.line}</p></button>`).join("");
 $("#reel").innerHTML=REEL.map(([v,t])=>`<button data-play="${v}" data-title="${t}" aria-label="Play ${t}"><img src="${P(v)}" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="t"><span>${t}</span><em>${mmss(RT[v])}</em></span></button>`).join("");
