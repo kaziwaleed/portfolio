@@ -123,6 +123,14 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing
 .row span{display:block;font-size:14px;color:var(--ink-2);line-height:1.45}
 .row span.at{color:var(--accent);font-size:13.5px;margin-top:1px}
 .row.aw{grid-template-columns:96px 1fr 52px;align-items:center}
+.row.jb{grid-template-columns:96px 1fr 92px}
+.row.jb .lgw{display:flex;justify-content:flex-end;padding-top:4px}
+.row.jb .lg{height:16px;width:auto;max-width:92px;object-fit:contain;object-position:right top;filter:brightness(0);opacity:.8}
+.row.jb .lg[src*="leoburnett"]{height:24px;padding-top:0}
+.sub{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:22px 0 10px;padding-top:12px;border-top:1px solid var(--line)}
+.sub b{font-size:15px;letter-spacing:.02em}
+.sub .mono{color:var(--mute)}
+.head + .sub{margin-top:4px}
 .row.aw .tr{display:flex;justify-content:flex-end;align-items:center;color:var(--accent)}
 .row.aw .troph{height:44px;width:auto;max-width:52px;object-fit:contain}
 .row.aw .troph.laurel{width:42px;height:42px}
@@ -220,14 +228,17 @@ dialog.lb .bar .mono{color:#B8AEA6}
     <div class="work" id="work-grid"></div>
   </section>
 
+  <section class="sec" id="film">
+    <div class="head"><h2>Film &amp; <em class="s">reel</em></h2><span class="mono">Scroll each row →</span></div>
+    <div class="sub"><b>Producer</b><span class="mono" id="n-p"></span></div>
+    <div class="strip" id="strip-p"></div>
+    <div class="sub"><b>Director</b><span class="mono" id="n-d"></span></div>
+    <div class="strip" id="strip-d"></div>
+  </section>
+
   <section class="sec" id="experiences">
     <div class="head"><h2>Brand <em class="s">experiences</em></h2><span class="mono">KSA · 2025</span></div>
     <div class="exp" id="exp-grid"></div>
-  </section>
-
-  <section class="sec" id="film">
-    <div class="head"><h2>Film &amp; <em class="s">reel</em></h2><span class="mono">Scroll →</span></div>
-    <div class="strip" id="strip"></div>
   </section>
 
   <section class="sec two" id="career">
@@ -250,7 +261,7 @@ dialog.lb .bar .mono{color:#B8AEA6}
 
   <section class="sec">
     <div class="how">
-      <p class="big">A creative who can write the script, run the pitch, sit in the edit and <span class="key">still care about the brief</span>.</p>
+      <p class="big">A creative who can write the script, run the pitch, sit in the edit and <span class="key">still lead with the brief</span>.</p>
       <div><span class="n">01</span><b>Start from a truth</b><span>Every campaign begins with a consumer insight, tested hard before it's made.</span></div>
       <div><span class="n">02</span><b>Plan where it counts</b><span>Integrated brand plans that decide where the investment goes, not just what it looks like.</span></div>
       <div><span class="n">03</span><b>Make it, fast</b><span>Production roots, AI workflows and a think-tank team that pitches 2–3 big ideas a month.</span></div>
@@ -291,12 +302,13 @@ const byId=(list,id)=>list.find(p=>p.id===id);
 const vsrc=v=>`./${v}.mp4`;
 const PICKS=["always","zyn","safeguard","dalda","knorr","value","barbican","kia","closeup"];
 const HOV={v45:12,v46:28,v47:24,v43:3,v23:2,v20:6,v31:3,v53:3,v55:3,v57:3,v44:20};
-const STRIP=[
+const PROD=[
  ["v45","Teri Meri Kahaniyaan","Feature film · marketing"],["v46","Rawalpindi Express","Feature film · producer"],
- ["v47","Digestive Showtime","15M+ views in month one"],["v43","National Ketchup Factory","Web series · Effie Bronze"],
- ["v23","Dalda · Eid se Pehle Eidi","Ramadan · associate director"],["v20","Dalda · Maamta","Writer"],["v31","Surf Excel · Ziddi Daaghon Se Kia Darna","MullenLowe · thematic"],
- ["v53","KIA Stonic · Beach","Associate director"],["v55","Always · Shhh","Associate director"],
- ["v57","Ensure · Abbott TVC","Director"],["v44","Healthy Saudi Smile","Haleon KSA · producer"]
+ ["v47","Digestive Showtime","20M+ views"],["v43","National Ketchup Factory","Web series · Effie Bronze"],
+ ["v44","Healthy Saudi Smile","Haleon KSA · producer"],["v42","DVC Showreel","TVCs & DVCs · 2019"],
+ ["v77","Scrub Shine Ultra","TVC · producer"],["v78","Jazz Super","TVC · producer"],["v79","Fresh Up","TVC · producer"],["v80","Domino's Mighty","TVC · producer"],["v81","Oppo Reno2 F","TVC · producer"],
+ ["v82","Digestive Showtime · Yorker","Short film · assoc. creative producer"],["v83","Digestive Showtime · Daughter By Law","Short film · assoc. creative producer"],["v84","Digestive Showtime · 2 Sey 5","Short film · assoc. creative producer"],["v85","Digestive Showtime · Full Circle","Short film · assoc. creative producer"],["v86","Digestive Showtime · Road Trip","Short film · assoc. creative producer"],
+ ["v87","Peek Freans RIO · Cotton Candy","3D film · producer · 2020"],["v88","Peek Freans RIO · Blueberry Magic","3D film · producer · 2020"],["v89","Peek Freans RIO · Beach","3D film · producer · 2020"],["v90","Peek Freans RIO · Fly To Me","3D film · producer · 2020"]
 ];
 const LJOBS=[
  ["2025 – now","Regional Creative Lead","Helium Marketing · UAE","Creative lead on a $16M Fortune 500 portfolio (PepsiCo, Unilever) plus Barbican across 6 GCC markets, from strategy and pitch to the finished campaigns."],
@@ -313,12 +325,15 @@ const AW=[
  ["2023","iF Design Award","KIA Stonic · #PlayItYoung","if"],
  ["2020","Effie Bronze","National Ketchup Factory web series","effie-bronze"]
 ];
-const tile=(p,list)=>`<button class="w" data-case="${p.id}" data-list="${list}"><div class="th"><img src="${p.poster}" alt="" loading="lazy">${p.loop?`<video muted loop playsinline preload="none" data-src="${vsrc(p.loop)}"></video>`:""}${p.award?`<span class="sash">${p.award}</span>`:""}<span class="pl cs">View case</span></div>
+const LPOST={value:"./value-trio-l.jpg"};
+const tile=(p,list)=>`<button class="w" data-case="${p.id}" data-list="${list}"><div class="th"><img src="${LPOST[p.id]||p.poster}" alt="" loading="lazy">${p.loop?`<video muted loop playsinline preload="none" data-src="${vsrc(p.loop)}"></video>`:""}${p.award?`<span class="sash">${p.award}</span>`:""}<span class="pl cs">View case</span></div>
   <div class="m"><span class="mono">${p.client}</span><span class="mono">${p.year}</span></div><h3>${p.title}</h3><p>${p.line}</p></button>`;
 $("#work-grid").innerHTML=PICKS.map(id=>tile(byId(WORK,id),"work")).join("");
 $("#exp-grid").innerHTML=EXP.map(p=>tile(p,"exp")).join("");
-$("#strip").innerHTML=STRIP.map(([v,t,r])=>`<button data-play="${v}" data-title="${t}"><div class="th"><img src="${P(v)}" alt="" loading="lazy">${HOV[v]!=null?`<video muted loop playsinline preload="none" data-src="${vsrc(v)}" data-start="${HOV[v]}"></video>`:""}</div><span class="t">${t}<em>${mmss(RT[v])}</em></span><span class="r">${r}</span></button>`).join("");
-$("#jobs").innerHTML=LJOBS.map(j=>`<div class="row"><span class="y">${j[0]}</span><div><b>${j[1]}</b><span class="at">${j[2]}</span><span>${j[3]}</span></div></div>`).join("");
+const stripBtn=(([v,t,r])=>`<button data-play="${v}" data-title="${t}"><div class="th"><img src="${P(v)}" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="${vsrc(v)}" data-start="${HOV[v]??3}"></video></div><span class="t">${t}<em>${mmss(RT[v])}</em></span><span class="r">${r}</span></button>`);
+$("#strip-p").innerHTML=PROD.map(stripBtn).join(""); $("#n-p").textContent=PROD.length+" projects";
+$("#strip-d").innerHTML=REEL.map(stripBtn).join(""); $("#n-d").textContent=REEL.length+" films";
+$("#jobs").innerHTML=LJOBS.map((j,k)=>`<div class="row jb"><span class="y">${j[0]}</span><div><b>${j[1]}</b><span class="at">${j[2]}</span><span>${j[3]}</span></div><span class="lgw">${LOGOS[k]?`<img class="lg" src="${LOGOS[k]}" alt="" loading="lazy">`:""}</span></div>`).join("");
 $("#awards").innerHTML=AW.map(a=>`<div class="row aw"><span class="y">${a[0]}</span><div><b>${a[1]}</b><span>${a[2]}</span></div><span class="tr">${TR(a[3])}</span></div>`).join("");
 
 /* hover previews */

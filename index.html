@@ -135,8 +135,9 @@ section{scroll-margin-top:72px}
 @media (max-width:700px){.strip{grid-auto-columns:78%}}
 .sub-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:72px 0 24px;border-top:1px solid var(--line);padding-top:22px;flex-wrap:wrap}
 .sub-h h3{margin:0;font-size:clamp(26px,3vw,38px);letter-spacing:-.03em;font-weight:700}
-.reel{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media (max-width:860px){.reel{grid-template-columns:repeat(2,1fr)}}
+.reel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:14px;scrollbar-color:var(--ink-3) transparent}
+.reel .pg{flex:0 0 100%;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:min-content;align-content:start;gap:12px;scroll-snap-align:start}
+@media (max-width:860px){.reel .pg{grid-template-columns:repeat(2,1fr)}}
 .reel button{position:relative;aspect-ratio:16/9;border:0;padding:0;border-radius:10px;overflow:hidden;background:var(--ink-3)}
 .reel img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .reel button:hover img{transform:scale(1.04)}
@@ -169,6 +170,8 @@ section{scroll-margin-top:72px}
 .job{padding:26px 22px 8px 0;display:grid;gap:10px;align-content:start;position:relative}
 .job::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--ink);border:1.5px solid var(--mute)}
 .job:first-child::before{background:var(--key);border-color:transparent;box-shadow:0 0 18px rgba(255,140,60,.6)}
+.job .lg{height:20px;width:auto;max-width:150px;object-fit:contain;object-position:left center;opacity:.85;margin-bottom:4px}
+.job .lg[src*="leoburnett"]{height:30px;max-width:150px;margin:-5px 0 -1px}
 .job h4{margin:0;font-size:22px;letter-spacing:-.02em;line-height:1.1}
 .job .at{color:var(--amber);font-size:15px}
 .job p{margin:0;color:var(--mute);font-size:15px}
@@ -318,7 +321,7 @@ dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap
         <p>Before agencies, I produced for production houses: two theatrical features, a YouTube short-film platform, an Effie-winning web series and 16+ TVCs. I still produce and direct today.</p>
       </div>
       <div class="strip" id="filmStrip"></div>
-      <div class="sub-h"><h3>Director's reel</h3><span class="mono">TVCs &amp; DVCs I directed or associate-directed</span></div>
+      <div class="sub-h"><h3>Director's reel</h3><span class="mono">TVCs &amp; DVCs I directed, associate- or assistant-directed · scroll →</span></div>
       <div class="reel" id="reel"></div>
     </section>
 
@@ -353,7 +356,7 @@ dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap
         </figure>
         <div class="about-body">
           <span class="mono">About</span>
-          <p class="big">I'm a creative who can write the script, run the pitch, sit in the edit and <span class="key">still care about the brief</span>.</p>
+          <p class="big">I'm a creative who can write the script, run the pitch, sit in the edit and <span class="key">still lead with the brief</span>.</p>
           <p>I started in production houses, owning budgets, crews and post, and moved into agencies to shape the ideas themselves. That mix is still how I work. I want the insight to be sharp, and I want it to survive the shoot.</p>
           <p>Today I lead brand strategy, creative direction and content production at Helium Marketing for PepsiCo, Unilever, Barbican and more. Before that I ran the P&amp;G and Philip Morris portfolios at Leo Burnett, and spent three years at MullenLowe on Unilever, Dalda and KIA.</p>
           <p>Along the way I've built integrated brand plans for Fortune 500 FMCG brands that lifted affinity by up to <b>18%</b>, sales by <b>11%</b> and category share by <b>20%</b>. I like being in the room where it's decided where the investment goes.</p>
@@ -438,11 +441,12 @@ $("#workGrid").innerHTML=WORK.map(p=>card(p,"work")).join("");
 $("#expGrid").innerHTML=EXP.map((p,i)=>card(p,"exp",i?"":"")).join("");
 $("#filmStrip").innerHTML=FILM.map(f=>`<button class="card rv" data-play="${f.v}" data-title="${f.title}">
   <div class="shot"><img src="${f.poster}" alt="" loading="lazy"><video muted loop playsinline preload="none" data-src="${vsrc(f.v)}" data-start="${f.hov||0}"></video>${f.award?`<span class="sash">${f.award}</span>`:""}<span class="tag mono"><i class="dot"></i>${f.role}</span></div>
-  <div class="meta"><span class="mono">${f.client} · ${f.year}</span><span class="mono">RT ${mmss(RT[f.v])}</span></div>
-  <h3>${f.title}</h3><p class="res">${f.line}</p></button>`).join("");
-$("#reel").innerHTML=REEL.map(([v,t])=>`<button data-play="${v}" data-title="${t}" aria-label="Play ${t}"><img src="${P(v)}" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="t"><span>${t}</span><em>${mmss(RT[v])}</em></span></button>`).join("");
+  <div class="meta"><span class="mono">${f.client}${f.year?` · ${f.year}`:""}</span><span class="mono">RT ${mmss(RT[f.v])}</span></div>
+  <h3>${f.title}</h3>${f.line?`<p class="res">${f.line}</p>`:""}</button>`).join("");
+const reelBtn=([v,t])=>`<button data-play="${v}" data-title="${t}" aria-label="Play ${t}"><img src="${P(v)}" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M3 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="t"><span>${t}</span><em>${mmss(RT[v])}</em></span></button>`;
+$("#reel").innerHTML=Array.from({length:Math.ceil(REEL.length/12)},(_,k)=>`<div class="pg">${REEL.slice(k*12,k*12+12).map(reelBtn).join("")}</div>`).join("");
 $("#awardList").innerHTML=AWARDS.map(a=>`<div class="aw rv"><span class="y">${a[0]}</span><span class="n">${a[1]}<small>${a[2]}</small></span><span class="p">${a[3]}</span><span class="a">${a[4]}</span>${TR(a[5])?`<span class="tr">${TR(a[5])}</span>`:""}</div>`).join("");
-$("#jobs").innerHTML=JOBS.map(j=>`<div class="job rv"><span class="mono">${j[0]}</span><h4>${j[1]}</h4><span class="at">${j[2]}</span><p>${j[3]}</p></div>`).join("");
+$("#jobs").innerHTML=JOBS.map((j,k)=>`<div class="job rv">${LOGOS[k]?`<img class="lg" src="${LOGOS[k]}" alt="" loading="lazy">`:""}<span class="mono">${j[0]}</span><h4>${j[1]}</h4><span class="at">${j[2]}</span><p>${j[3]}</p></div>`).join("");
 
 /* hover previews (pointer devices only) */
 const canHover=matchMedia("(hover:hover) and (pointer:fine)").matches && !matchMedia("(prefers-reduced-motion:reduce)").matches;

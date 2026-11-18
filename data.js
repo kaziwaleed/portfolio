@@ -1,7 +1,7 @@
 /* ============ DATA ============
    Video sources: "v12" = local file ./v12.mp4.
    To host on Vimeo or YouTube later, replace with "vimeo:123456789" or "youtube:VIDEO_ID". */
-const RT={v63:20,v1:20,v2:30,v3:10,v4:30,v5:15,v6:14,v7:13,v8:23,v9:15,v10:32,v11:26,v12:26,v13:25,v14:26,v15:23,v16:31,v17:32,v18:30,v19:30,v20:60,v21:25,v22:10,v23:25,v24:15,v25:10,v26:15,v27:10,v28:22,v29:15,v30:10,v31:30,v32:50,v33:20,v34:20,v35:15,v36:46,v37:26,v38:15,v39:49,v40:57,v41:56,v42:62,v43:26,v44:118,v45:196,v46:67,v47:60,v48:10,v49:21,v50:28,v51:26,v52:15,v53:56,v54:49,v55:13,v56:13,v57:45,v58:15,v59:35,v60:80,v61:22,v62:53};
+const RT={v63:20,v1:20,v2:30,v3:10,v4:30,v5:15,v6:14,v7:13,v8:23,v9:15,v10:32,v11:26,v12:26,v13:25,v14:26,v15:23,v16:31,v17:32,v18:30,v19:30,v20:60,v21:25,v22:10,v23:25,v24:15,v25:10,v26:15,v27:10,v28:22,v29:15,v30:10,v31:30,v32:50,v33:20,v34:20,v35:15,v36:46,v37:26,v38:15,v39:49,v40:57,v41:56,v42:62,v43:26,v44:118,v45:196,v46:67,v47:60,v48:10,v49:21,v50:28,v51:26,v52:15,v53:56,v54:49,v55:13,v56:13,v57:45,v58:15,v59:35,v60:80,v61:22,v62:53,v64:24,v65:29,v66:15,v67:15,v68:15,v69:93,v70:25,v71:46,v72:15,v73:42,v74:40,v75:120,v76:84,v77:60,v78:12,v79:50,v80:49,v81:61,v82:47,v83:78,v84:53,v85:77,v86:53,v87:55,v88:40,v89:35,v90:40};
 const TALL=new Set(["v6","v7","v17","v26","v27","v29","v30"]);
 const I=n=>typeof n==="number"?`./image${n}.jpg`:`./${n}.jpg`;
 const POVR={v2:"./th-always.jpg",v20:"./th-dalda.jpg",v45:"./th-tmk.jpg",v46:"./th-rwp.jpg",v47:"./th-dig.jpg"};
@@ -127,16 +127,38 @@ const FILM=[
  {id:"rawalpindi",client:"Feature film",year:"2023",role:"Producer",title:"Rawalpindi Express",poster:P("v46"),v:"v46",hov:28,
   line:"The Shoaib Akhtar biopic. I line-produced the first-look teaser."},
  {id:"digestive",client:"Short-film platform · YouTube",year:"2021",role:"Associate Creative Producer",title:"Digestive Showtime",poster:P("v47"),v:"v47",hov:24,
-  line:"5 films, 5 directors, crews of 150, and <b>15M+ views</b> in the first month."},
+  line:"5 films, 5 directors, crews of 150, and <b>20M+ views</b>."},
  {id:"nkf",client:"12-episode web series",year:"2020",role:"Associate Creative Producer",title:"National Ketchup Factory",poster:P("v43"),v:"v43",hov:3,award:"Effie Bronze",trophy:"effie-bronze",
   line:"A kids' cooking series for National Foods that won an Effie."},
  {id:"haleon",client:"Haleon · KSA",year:"2025",role:"Producer",title:"Healthy Saudi Smile",poster:I(80),v:"v44",hov:20,
   line:"A Saudi oral-health film produced end to end."},
  {id:"dvc",client:"TVCs & DVCs",year:"2019",role:"Associate Creative Producer · Director",title:"DVC Showreel",poster:P("v42"),v:"v42",hov:5,
-  line:"Work for EBM, National Foods, Domino's, Oppo and Bayer."}
+  line:"Work for EBM, National Foods, Domino's, Oppo and Bayer."},
+ /* added Nov 2026 from the Director & Producer deck */
+ {id:"scrub",client:"TVC",year:"",role:"Producer",title:"Scrub Shine Ultra",poster:P("v77"),v:"v77",hov:4,line:""},
+ {id:"jazz",client:"TVC",year:"",role:"Producer",title:"Jazz Super",poster:P("v78"),v:"v78",hov:3,line:""},
+ {id:"freshup",client:"TVC",year:"",role:"Producer",title:"Fresh Up",poster:P("v79"),v:"v79",hov:4,line:""},
+ {id:"dominos",client:"TVC",year:"",role:"Producer",title:"Domino's Mighty",poster:P("v80"),v:"v80",hov:4,line:""},
+ {id:"oppo",client:"TVC",year:"",role:"Producer",title:"Oppo Reno2 F",poster:P("v81"),v:"v81",hov:4,line:""},
+ {id:"ds-yorker",client:"Digestive Showtime",year:"2021",role:"Associate Creative Producer",title:"Yorker",poster:P("v82"),v:"v82",hov:6,line:""},
+ {id:"ds-dbl",client:"Digestive Showtime",year:"2021",role:"Associate Creative Producer",title:"Daughter By Law",poster:P("v83"),v:"v83",hov:6,line:""},
+ {id:"ds-2sey5",client:"Digestive Showtime",year:"2021",role:"Associate Creative Producer",title:"2 Sey 5",poster:P("v84"),v:"v84",hov:6,line:""},
+ {id:"ds-circle",client:"Digestive Showtime",year:"2021",role:"Associate Creative Producer",title:"Full Circle",poster:P("v85"),v:"v85",hov:6,line:""},
+ {id:"ds-road",client:"Digestive Showtime",year:"2021",role:"Associate Creative Producer",title:"Road Trip",poster:P("v86"),v:"v86",hov:6,line:""},
+ {id:"rio-cc",client:"Peek Freans RIO · 3D",year:"2020",role:"Producer",title:"RIO Cotton Candy",poster:P("v87"),v:"v87",hov:4,line:""},
+ {id:"rio-bb",client:"Peek Freans RIO · 3D",year:"2020",role:"Producer",title:"RIO Blueberry Magic",poster:P("v88"),v:"v88",hov:4,line:""},
+ {id:"rio-beach",client:"Peek Freans RIO · 3D",year:"2020",role:"Producer",title:"RIO Beach",poster:P("v89"),v:"v89",hov:4,line:""},
+ {id:"rio-fly",client:"Peek Freans RIO · 3D",year:"2020",role:"Producer",title:"RIO Fly To Me",poster:P("v90"),v:"v90",hov:4,line:""}
 ];
 
-const REEL=[["v52","Dalda · Har Din Eid"],["v48","Dalda · Eid se Pehle Eidi"],["v49","ZYN · Find Your ZYN"],["v50","ZYN · Jamming"],["v51","ZYN · Painting"],["v53","KIA Stonic · Beach"],["v54","KIA Stonic · Rooftop"],["v55","Always · Shhh"],["v56","Always · Haww Haye"],["v57","Ensure · Abbott TVC"],["v58","Faysal Bank · Credit Cards"],["v59","Faysal Bank · Rehmat Account"]];
+const REEL=[["v52","Dalda · Har Din Eid","Associate director"],["v48","Dalda · Eid se Pehle Eidi","Associate director"],["v49","ZYN · Find Your ZYN","Associate director"],["v50","ZYN · Jamming","Associate director"],["v51","ZYN · Painting","Associate director"],["v53","KIA Stonic · Beach","Associate director"],["v54","KIA Stonic · Rooftop","Associate director"],["v55","Always · Shhh","Associate director"],["v56","Always · Haww Haye","Associate director"],["v57","Ensure · Abbott TVC","Director"],["v58","Faysal Bank · Credit Cards","Assistant director"],["v59","Faysal Bank · Rehmat Account","Assistant director"],
+ /* added Nov 2026 from the Director & Producer deck */
+ ["v9","ZYN · XX-Strong CGI","Director"],["v15","ZYN · Watermelon","Associate director"],["v40","KIA Stonic · Film 3","Associate director"],
+ ["v64","Shangrila · Ketchup Sauce","Associate director"],["v65","Shangrila · BBQ Sauce","Associate director"],
+ ["v66","Ensure · Cricket 1","Associate director"],["v67","Ensure · Cricket 2","Associate director"],["v68","Ensure · Cricket 3","Associate director"],
+ ["v69","Unilever · Chef Jason hero film","Associate director"],["v70","Unilever · Chef Jason teaser","Associate director"],["v71","Lay's · Chili Tasting Challenge","Associate director"],
+ ["v72","Faysal Bank · Credit Cards BTS","Assistant director"],["v73","Mercury Pens · Office","Associate director"],["v74","Mercury Pens · School","Associate director"],
+ ["v75","Castrol · DVC 1","Assistant director"],["v76","Castrol · DVC 2","Assistant director"]];
 
 const AWARDS=[
  ["2025","Saudi Event Awards","Outstanding Activation · Nominee","Flamin' Hot Culinary Activation","Helium MENA","laurel"],
@@ -156,6 +178,8 @@ const JOBS=[
  ["2021 – 2024","Associate Creative Director","MullenLowe · PK","Led a team of 12 across 11 brands in 2 markets, reporting to the CCO. Won 2 new brands, won back 2, grew the retainer base by 20%, and rebuilt Knorr's bouillon identity for Gen-Z."],
  ["2018 – 2021","Creative Producer","SEEME · Tall Man Films · Digital Invasion","Produced, wrote and directed for EBM, National Foods, Domino's, Oppo and Bayer. 16+ TVCs, an Effie-winning web series, and an OTT and cinema division with 2 theatrical features."]
 ];
+
+const LOGOS=["./logo-helium.png","./logo-leoburnett.png","./logo-mullenlowe.png","./logo-seeme.png"];
 
 const BRANDS=["P&G","PepsiCo","Unilever","Philip Morris","Always","Ariel","Safeguard","ZYN","Barbican","DZRT","Dubai Holding","Close Up","Lay's","Sting","Doritos","Dalda","KIA","Lifebuoy","Knorr","Surf Excel","Haleon","EFU Life","Domino's","Oppo"];
 
